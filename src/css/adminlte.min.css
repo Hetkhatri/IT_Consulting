@@ -31396,7 +31396,8 @@ td {
   top: 160px;
   width: 100px;
 }
-.accept 
+.accept
 {
   background-color: green;
+  color:white;
 }
