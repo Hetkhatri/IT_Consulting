@@ -13,6 +13,7 @@ include('../Database/database_connectivity.php');
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
 
    <link rel="stylesheet" href="../css/home.css">
+   <link rel="stylesheet" href="../css/f-home.css">
 
    <style>
        body {
@@ -22,16 +23,18 @@ include('../Database/database_connectivity.php');
    </style>
 </head>
 <body>
-  <?php 
-    include('freelancer_header.php');
-  ?>
-
+    <!-- Header -->
+    <header>
+        <?php
+        include('../user/user_header.php');
+        ?>
+    </header>
     <?php  
         // Check if the session variable 'email' is set
         if (isset($_SESSION['email'])) {
             $email = $_SESSION['email'];           
             // Database query to fetch username
-            $query = "SELECT username FROM freelancer_signup WHERE email = ?";
+            $query = "SELECT username FROM user_signup WHERE email = ?";
             $stmt = $connection->prepare($query);
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -52,46 +55,66 @@ include('../Database/database_connectivity.php');
             // exit();
         }
     ?>
-    <div id="home-page" class="home">
+    <div id="home-page" class="user">
+        <u>
         <h1>Welcome <?php 
         echo $username;
         ;?></h1>
-        <p>Discover a platform where freelancers and projects meet seamlessly.</p>
-        <div class="features">
-            <div class="feature">
-                <h3>Easy Project Management</h3>
-                <p>View and manage multiple projects at your convenience.</p>
-            </div>
-            <div class="feature">
-                <h3>Detailed Requirements</h3>
-                <p>Access comprehensive SRS documentation for every project.</p>
-            </div>
-            <div class="feature">
-                <h3>Quick Accept</h3>
-                <p>Accept projects with a single click and start working right away.</p>
-            </div>
-        </div>
+        </u>
+        </div> 
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h2>Revolutionizing IT Consulting</h2>
+        <p>Effortlessly connect with top freelancers using our intelligent algorithm. The best match for your project is just a click away.</p>
+        <a href="freelancer_project.php"><button class="cta-btn" id="getStartedBtn">Get Projects</button></a>
+    </section>
+ 
 
-        <a href="#" class="btn1" onclick="showProjectsPage()">View Projects</a>
+    <!-- Footer -->
+     <div class="footer-class">
+    <footer>
+        <p>&copy; 2025 IT Consulting Platform. All rights reserved.</p>
+    </footer>
     </div>
 
-    <div id="projects-page" class="container" style="display: none;">
-        <h1>Freelancer Projects</h1>
-        <div id="projects-list">
-            <!-- Projects will be rendered here dynamically -->
-        </div>
-    </div>
+    <script>
+        // Show the form when 'Get Started' button is clicked
+        document.getElementById('#getStartedBtn').addEventListener('click', function() {
+            console.log("click");
+        });
 
-    <div id="contact-page" class="contact" style="display: none;">
-        <h1>Contact Us</h1>
-        <form onsubmit="submitContactForm(event)">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+        // Close the form when 'X' button is clicked
+        document.getElementById('closeFormBtn').addEventListener('click', function() {
+            document.getElementById('formContainer').style.display = 'none';
+        });
 
-    <script  src="home.js"></script>
+        // Handle form submission
+        document.getElementById('projectForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const projectName = document.getElementById('projectName').value;
+            const projectDescription = document.getElementById('projectDescription').value;
+            const projectType = document.getElementById('projectType').value;
+            const budget = document.getElementById('budget').value;
+            
+            alert(Project Submitted: ${projectName}\nType: ${projectType}\nBudget: ${budget}\nDescription: ${projectDescription});
+            document.getElementById('formContainer').style.display = 'none';
+        });
+
+        // Filter Projects by Category
+        document.getElementById('projectFilter').addEventListener('change', function(event) {
+            const selectedCategory = event.target.value;
+            const projectCards = document.querySelectorAll('.project-card');
+
+            projectCards.forEach(function(card) {
+                if (selectedCategory === 'all' || card.getAttribute('data-category') === selectedCategory) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
