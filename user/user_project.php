@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('database_connectivity.php');
+include('../Database/database_connectivity.php');
 include('user_header.php');
 ?>
 <!DOCTYPE html>

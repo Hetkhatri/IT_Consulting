@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('database_connectivity.php');
+include('../Database/database_connectivity.php');
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ include('database_connectivity.php');
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
 
-   <link rel="stylesheet" href="home.css">
+   <link rel="stylesheet" href="../css/home.css">
 
    <style>
        body {
@@ -24,7 +24,6 @@ include('database_connectivity.php');
 <body>
   <?php 
     include('freelancer_header.php');
-    session_start();
   ?>
 
     <?php  

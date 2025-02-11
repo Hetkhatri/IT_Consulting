@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('database_connectivity.php')
+    include('../Database/database_connectivity.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
