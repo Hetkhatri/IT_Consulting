@@ -1,0 +1,29 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  height: 100vh;
+
+  margin-left: 80vh;
+}
+input,
+select {
+  margin-top: 3vh;
+  padding: 20px;
+  left: 50px;
+  background-image: #088f8f;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-image: #088f8f;
+}

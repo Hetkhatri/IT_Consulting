@@ -1,0 +1,20 @@
+.head {
+  position: absolute;
+  left: 300px;
+  top: 100px;
+}
+.project {
+  top: 200px;
+  position: absolute;
+  left: 300px;
+  border: 3px solid grey;
+  margin: 0.5rem;
+  width: 160vh;
+  text-align: center;
+}
+
+th,
+td {
+  border: 1px solid #000;
+  padding: 0.5rem;
+}
