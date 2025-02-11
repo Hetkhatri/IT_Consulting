@@ -93,15 +93,8 @@
               </div>
 
             </div>
-<<<<<<< HEAD
             <div class="col-lg-3 col-6">
 
-=======
-          </div>
-
-        </div>
-        <div class="col-lg-3 col-6">
->>>>>>> ca721b2f0f36081f93c7a3b6cbad68739111bf7b
 <div class="small-box bg-success">
   <div class="inner">
     <h3>88<sup style="font-size: 20px"></sup></h3>
