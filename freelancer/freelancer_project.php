@@ -51,8 +51,8 @@
                     <td>" . $row["email"] . "</td>
                     <td>" . $row["contactno"] . "</td>
                     <td>" . $row["budget"] . "</td>
-                    <td><input type=button value=Accept name=btn> </td>
-                    <td><input type=button value=Reject name=btn> </td>
+                    <td class='accept'><input type=button value=Accept name=btn> </td>
+                    <td class='reject'><input type=button value=Reject name=btn> </td>
                   </tr>";
         }
     } 
