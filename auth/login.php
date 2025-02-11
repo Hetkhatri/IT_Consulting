@@ -25,21 +25,32 @@
       <p>Don't have Account?</p>
       <a href="signup.php"><button>sign-up</button></a>
     </div>
+
     <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
       $email = test_input($_POST['email']);
-      $password = test_input($_POST['password']);
-      $select = "select * from user_signup where email= '$email' AND password = '$password'";
+      $password = $_POST['password'];
+
+      $select = "SELECT * FROM user_signup WHERE email = '$email'";
       $execute = $connection->query($select);
+
       if ($execute && $execute->num_rows > 0) {
-        $_SESSION['email'] = $email;
-        header("location:../user/user_homepage.php");
-        exit;
+        $row = $execute->fetch_assoc();
+        // Verify hashed password
+        if (password_verify($password, $row['password'])) {
+          $_SESSION['email'] = $email;
+          header("Location: ../user/user_homepage.php");
+          exit;
+        } else {
+          echo "<p class='invalid' style='color:red; font-weight:bold;'>Invalid Email or Password</p>";
+        }
       } else {
-        echo "<p class='invalid'>Invalid Email or Password</p>";
+        echo "<p class='invalid' style='color:red; font-weight:bold;'>Invalid Email or Password</p>";
       }
     }
+
     ?>
+
     <!-- Right Side - Sign-Up Section -->
     <div class="signup-section">
       <h2>Login</h2>
@@ -52,7 +63,7 @@
         <input type="email" placeholder="Email" name="email" required />
         <input type="password" placeholder="Password" id="password" required name="password" />
         <img src="../includes/images/hide.png" class="togglePassword" id="togglePassword">
-        <button type="submit">Login</button>
+        <button type="submit" name="submit">Login</button>
         <div class="forget">
           <a href="../user/forgot_password.php">Forget Password?</a>
         </div>

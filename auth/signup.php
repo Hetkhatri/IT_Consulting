@@ -53,16 +53,41 @@
       $email = test_input($_REQUEST['email']);
       $phone = test_input($_REQUEST['phone']);
       $password = test_input($_REQUEST['password']);
-      $insert = "insert into user_signup(username,email,contactno,password)values('" . $username . "','" . $email . "','" . $phone . "','" . $password . "')";
-      $execute = $connection->query($insert);
-      if ($execute) {
-        $message = "Account Created Successfully";
-        echo "<script type='text/javascript'>alert('$message');</script>";
+      $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+      if (!validate_email($email)) {
+        $message = "Invalid Email Format";
+      } elseif (!validate_phone($phone)) {
+        $message = "Invalid Phone Number (Must be 10 digits)";
+      } elseif (!validate_password($password)) {
+        $message = "Password must be at least 6 characters";
       } else {
-        $message = "Account Created unsuccessfully";
-        echo "<script type='text/javascript'>alert('$message');</script>";
+        // Escape Inputs to Prevent SQL Injection
+        $username = mysqli_real_escape_string($connection, $username);
+        $email = mysqli_real_escape_string($connection, $email);
+        $phone = mysqli_real_escape_string($connection, $phone);
+
+        // Check if Email Already Exists
+        $check_email = "SELECT email FROM user_signup WHERE email = '$email'";
+        $result = $connection->query($check_email);
+
+        if ($result->num_rows > 0) {
+          $message = "Email Already Registered";
+        } else {
+          // Insert into Database
+          $insert = "INSERT INTO user_signup(username, email, contactno, password) VALUES('$username', '$email', '$phone', '$hashed_password')";
+          $execute = $connection->query($insert);
+
+          if ($execute) {
+            $message = "Account Created Successfully";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+          } else {
+            $message = "Account Created unsuccessfully";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+          }
+        }
       }
     }
+
     ?>
 </body>
 
