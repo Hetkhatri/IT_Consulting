@@ -1,7 +1,6 @@
-
 <?php
-    session_start();
-    include('../Database/database_connectivity.php');
+session_start();
+include('../Database/database_connectivity.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,34 +15,34 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <body class="hold-transition sidebar-mini">
   <?php
-    $sql = "select * from freelancer_signup";
-    $result = $connection -> query($sql);
+  $sql = "select * from freelancer_signup";
+  $result = $connection->query($sql);
   ?>
   <div class="wrapper">
     <!-- htmlspecialchars_decode -->
     <?php include 'admin_header.php' ?>
-    
+
     <div class="content-wrapper">
-    <h1 class="head">Registered Freelancers</h1>
-    <?php
-     $sql = "select * from freelancer_signup";
-     $result = $connection->query($sql);
-     ?>
+      <h1 class="head">Registered Freelancers</h1>
+      <?php
+      $sql = "select * from freelancer_signup";
+      $result = $connection->query($sql);
+      ?>
       <table class="project">
         <tr>
-            <th> </th>
-            <th>Username</th>
-            <th>E-Mail</th>
-            <th>Contact-No.</th>
-            <th>password</th>
-        </tr>  
+          <th> </th>
+          <th>Username</th>
+          <th>E-Mail</th>
+          <th>Contact-No.</th>
+          <th>password</th>
+        </tr>
         <?php
-    if ($result->num_rows > 0) 
-    {
-        // Output data of each row
-        while ($row = $result->fetch_assoc()) {
+        if ($result->num_rows > 0) {
+          // Output data of each row
+          while ($row = $result->fetch_assoc()) {
             echo "<tr>
                     <td>" . $row["id"] . "</td>
                     <td>" . $row["username"] . "</td>
@@ -51,20 +50,18 @@
                     <td>" . $row["contactno"] . "</td>
                     <td>" . $row["password"] . "</td>
                   </tr>";
+          }
+        } else {
+          echo "<tr><td colspan='4'>No records found</td></tr>";
         }
-    } 
-    else 
-    {
-        echo "<tr><td colspan='4'>No records found</td></tr>";
-      }
-      ?>
-          
-        
-        
+        ?>
+
+
+
       </table>
     </div>
 
-    <?php include ('admin_footer.php'); ?>
+    <?php include('admin_footer.php'); ?>
   </div>
 
   <!-- jQuery -->

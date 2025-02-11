@@ -107,7 +107,8 @@ body {
   font-size: 16px;
 }
 
-.signup-section form button {
+.signup-section form button,
+#input {
   background-color: #2a7c69;
   color: #fff;
   border: none;
@@ -118,7 +119,8 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.signup-section form button:hover {
+.signup-section form button:hover,
+#input {
   background-color: #1e5c4f;
 }
 
