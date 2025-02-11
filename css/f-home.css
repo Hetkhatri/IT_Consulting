@@ -220,17 +220,18 @@ footer {
     color: #fff;
     text-align: center;
     padding: 25px 0;
-    margin-top: -60px;
-    height:22px;
+    margin-top: 60px;
 }
 
 footer p {
     position: relative;
-    top:-22px;
-    font-size: 16px;
+    top:-12px;
+    font-size: 16em;
 }
 .footer-class>footer{
     background: #2B547E;
+    position: relative; 
+    top: 500px;
 
 }
 
