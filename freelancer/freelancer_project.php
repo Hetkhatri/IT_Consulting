@@ -35,7 +35,7 @@
             <th>E-Mail</th>
             <th>Contact-No.</th>
             <th>Budget</th>
-            <th>Action</th>
+            <th colspan=2>Action</th>
           
         </tr>  
         <?php
@@ -51,6 +51,8 @@
                     <td>" . $row["email"] . "</td>
                     <td>" . $row["contactno"] . "</td>
                     <td>" . $row["budget"] . "</td>
+                    <td><input type=button value=Accept name=btn> </td>
+                    <td><input type=button value=Reject name=btn> </td>
                   </tr>";
         }
     } 
