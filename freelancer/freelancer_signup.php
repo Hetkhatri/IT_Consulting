@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>signup Page</title>
   <?php
-  include('database_connectivity.php')
+  include('../Database/database_connectivity.php')
   ?>
   <style>
     body {
