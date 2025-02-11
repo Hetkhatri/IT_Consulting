@@ -188,7 +188,7 @@ include('../Database/database_connectivity.php');
             confirmButtonText: 'Yes, log me out!'
         }).then((result) => {
             if (result.value) {
-                window.location.href = 'index.php';
+                window.location.href = '../index.php';
             }
         });
     }
