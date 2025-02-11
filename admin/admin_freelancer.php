@@ -22,6 +22,7 @@
     $result = $connection -> query($sql);
   ?>
   <div class="wrapper">
+    <!-- htmlspecialchars_decode -->
     <?php include 'admin_header.php' ?>
     
     <div class="content-wrapper">
