@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2025 at 07:04 AM
+-- Generation Time: Feb 11, 2025 at 08:22 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin_signup` (
+  `id` int(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `contactno` varchar(255) NOT NULL,
@@ -38,8 +39,8 @@ CREATE TABLE `admin_signup` (
 -- Dumping data for table `admin_signup`
 --
 
-INSERT INTO `admin_signup` (`username`, `email`, `contactno`, `password`) VALUES
-('Het', 'hetkhatri22@gmail.com', '9173588345', '1234');
+INSERT INTO `admin_signup` (`id`, `username`, `email`, `contactno`, `password`) VALUES
+(1, 'Het', 'hetkhatri22@gmail.com', '9173588345', '1234');
 
 -- --------------------------------------------------------
 
@@ -48,6 +49,7 @@ INSERT INTO `admin_signup` (`username`, `email`, `contactno`, `password`) VALUES
 --
 
 CREATE TABLE `freelancer_contactus` (
+  `id` int(255) NOT NULL,
   `Name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `project` varchar(255) NOT NULL,
@@ -58,8 +60,9 @@ CREATE TABLE `freelancer_contactus` (
 -- Dumping data for table `freelancer_contactus`
 --
 
-INSERT INTO `freelancer_contactus` (`Name`, `email`, `project`, `message`) VALUES
-('VISHAL KHATRI', 'hetkhatri22@gmail.com', 'IT_Consulting', 'Just testing');
+INSERT INTO `freelancer_contactus` (`id`, `Name`, `email`, `project`, `message`) VALUES
+(1, 'VISHAL KHATRI', 'hetkhatri22@gmail.com', 'IT_Consulting', 'Just testing'),
+(2, 'Het', 'nxzgaming577@gmail.com', 'IT_Consulting', 'dgdg');
 
 -- --------------------------------------------------------
 
@@ -68,6 +71,7 @@ INSERT INTO `freelancer_contactus` (`Name`, `email`, `project`, `message`) VALUE
 --
 
 CREATE TABLE `freelancer_signup` (
+  `id` int(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `contactno` varchar(255) NOT NULL,
@@ -78,9 +82,10 @@ CREATE TABLE `freelancer_signup` (
 -- Dumping data for table `freelancer_signup`
 --
 
-INSERT INTO `freelancer_signup` (`username`, `email`, `contactno`, `password`) VALUES
-('Het', 'hetkhatri22@gmail.com', '9173588345', '1243'),
-('vishal', 'nxzgaming577@gmail.com', '9979874742', 'Het');
+INSERT INTO `freelancer_signup` (`id`, `username`, `email`, `contactno`, `password`) VALUES
+(1, 'Dhairya', 'dhairyamakwana1208@gmail.com', '9773244867', '1208'),
+(2, 'Het', 'hetkhatri22@gmail.com', '9173588345', '1243'),
+(3, 'vishal', 'nxzgaming577@gmail.com', '9979874742', 'Het');
 
 -- --------------------------------------------------------
 
@@ -89,6 +94,7 @@ INSERT INTO `freelancer_signup` (`username`, `email`, `contactno`, `password`) V
 --
 
 CREATE TABLE `user_project` (
+  `id` int(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   `details` varchar(255) NOT NULL,
@@ -101,8 +107,10 @@ CREATE TABLE `user_project` (
 -- Dumping data for table `user_project`
 --
 
-INSERT INTO `user_project` (`title`, `type`, `details`, `email`, `contactno`, `budget`) VALUES
-('twinder spot', 'website', 'want to create website for freelancer', 'hetkhatri22@gmail.com', '9173588345', '50000');
+INSERT INTO `user_project` (`id`, `title`, `type`, `details`, `email`, `contactno`, `budget`) VALUES
+(1, 'Dhairya', 'website', 'want to create website for freelancer', 'dhairyamakwana1208@gmail.com', '9773244867', '10000'),
+(2, 'twinder spot', 'website', 'want to create website for freelancer', 'hetkhatri22@gmail.com', '9173588345', '50000'),
+(3, 'parshwanath', 'website', 'i want to create a website on chemical ', 'nxzgaming577@gmail.com', '9173588345', '20000');
 
 -- --------------------------------------------------------
 
@@ -111,6 +119,7 @@ INSERT INTO `user_project` (`title`, `type`, `details`, `email`, `contactno`, `b
 --
 
 CREATE TABLE `user_signup` (
+  `id` int(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `contactno` varchar(255) NOT NULL,
@@ -123,10 +132,11 @@ CREATE TABLE `user_signup` (
 -- Dumping data for table `user_signup`
 --
 
-INSERT INTO `user_signup` (`username`, `email`, `contactno`, `password`, `resettoken`, `resettokenexpire`) VALUES
-('Dhairya', 'dhairyamakwana1208@gmail.com', '9773244867', '120808', '614fbef4d77ab83201038613bf464924', '2025-01-28'),
-('Het', 'hetkhatri22@gmail.com', '9173588345', '1234', '6def2a207224da3f63155360ee7a3409', '2025-01-28'),
-('Vishal', 'nxzgaming577@gmail.com', '9979874742', 'Het', 'e474c1c49c022fc8186d5ccebc4af3d5', '2025-02-04');
+INSERT INTO `user_signup` (`id`, `username`, `email`, `contactno`, `password`, `resettoken`, `resettokenexpire`) VALUES
+(1, 'admin', 'admin@gmail.com', '9999999999', '134', NULL, NULL),
+(2, 'Dhairya', 'dhairyamakwana1208@gmail.com', '9773244867', '120808', '614fbef4d77ab83201038613bf464924', '2025-01-28'),
+(3, 'Het', 'hetkhatri22@gmail.com', '9173588345', '1234', '6def2a207224da3f63155360ee7a3409', '2025-01-28'),
+(4, 'Vishal', 'nxzgaming577@gmail.com', '9979874742', 'Het', 'e474c1c49c022fc8186d5ccebc4af3d5', '2025-02-04');
 
 --
 -- Indexes for dumped tables
@@ -136,31 +146,70 @@ INSERT INTO `user_signup` (`username`, `email`, `contactno`, `password`, `resett
 -- Indexes for table `admin_signup`
 --
 ALTER TABLE `admin_signup`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`email`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indexes for table `freelancer_contactus`
 --
 ALTER TABLE `freelancer_contactus`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`email`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indexes for table `freelancer_signup`
 --
 ALTER TABLE `freelancer_signup`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`email`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indexes for table `user_project`
 --
 ALTER TABLE `user_project`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`email`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indexes for table `user_signup`
 --
 ALTER TABLE `user_signup`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`email`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin_signup`
+--
+ALTER TABLE `admin_signup`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `freelancer_contactus`
+--
+ALTER TABLE `freelancer_contactus`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `freelancer_signup`
+--
+ALTER TABLE `freelancer_signup`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user_project`
+--
+ALTER TABLE `user_project`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user_signup`
+--
+ALTER TABLE `user_signup`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
