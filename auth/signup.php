@@ -45,7 +45,7 @@
         <button type="submit" name="btn">Signup</button>
       </form>
     </div>
-    <script src="animation.js">
+    <script src="../js/animation.js">
     </script>
     <?php
     if (isset($_REQUEST['btn'])) {

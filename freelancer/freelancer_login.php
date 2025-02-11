@@ -58,7 +58,7 @@ include "./utillities/functions.php";
       </form>
     </div>
   </div>
-  <script src="animation.js"></script>
+  <script src="../js/animation.js"></script>
 </body>
 
 </html>
