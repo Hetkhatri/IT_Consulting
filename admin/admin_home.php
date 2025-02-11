@@ -63,7 +63,7 @@
                 <div class="inner">
                   <h3>65</h3>
 
-                  <p>Freelaners</p>
+                  <p>Freelancers</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>

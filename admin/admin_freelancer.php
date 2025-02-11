@@ -26,7 +26,7 @@
     <?php include 'admin_header.php' ?>
     
     <div class="content-wrapper">
-    <h1 class="head">Registerd Freelancers</h1>
+    <h1 class="head">Registered Freelancers</h1>
     <?php
      $sql = "select * from freelancer_signup";
      $result = $connection->query($sql);

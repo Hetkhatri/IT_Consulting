@@ -27,7 +27,7 @@
     <?php include 'admin_header.php' ?>
     
     <div class="content-wrapper">
-    <h1 class="head">Registerd Users</h1>
+    <h1 class="head">Registered Users</h1>
     <?php
      $sql = "select * from user_signup";
      $result = $connection->query($sql);
