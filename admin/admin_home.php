@@ -27,10 +27,17 @@
 
           <div class="row">
             <div class="col-lg-3 col-6">
-
+            <?php
+        $sql = "SELECT COUNT(*) AS total FROM user_project";
+        $result = $connection->query($sql);
+        if($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
+          $total_entries = $row["total"];
+      }
+        ?>
               <div class="small-box bg-info">
                 <div class="inner"> 
-                  <h3>150</h3>
+                  <h3><?php echo $total_entries?></h3>
 
                   <p>Projects</p>
                 </div>
@@ -42,11 +49,18 @@
             </div>
 
 
-
+            <?php
+        $sql = "SELECT COUNT(*) AS total FROM user_signup";
+        $result = $connection->query($sql);
+        if($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
+          $total_entries = $row["total"];
+      }
+        ?>
             <div class="col-lg-3 col-6">
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3><?php echo $total_entries ?></h3>
 
                   <p>Users</p>
                 </div>
@@ -58,10 +72,17 @@
             </div>
 
             <div class="col-lg-3 col-6">
-
+            <?php
+        $sql = "SELECT COUNT(*) AS total FROM freelancer_signup";
+        $result = $connection->query($sql);
+        if($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
+          $total_entries = $row["total"];
+      }
+      ?>
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <h3>65</h3>
+                  <h3><?php echo $total_entries ?></h3>
 
                   <p>Freelancers</p>
                 </div>
@@ -72,11 +93,18 @@
               </div>
 
             </div>
+<<<<<<< HEAD
             <div class="col-lg-3 col-6">
 
+=======
+          </div>
+
+        </div>
+        <div class="col-lg-3 col-6">
+>>>>>>> ca721b2f0f36081f93c7a3b6cbad68739111bf7b
 <div class="small-box bg-success">
   <div class="inner">
-    <h3>53<sup style="font-size: 20px"></sup></h3>
+    <h3>88<sup style="font-size: 20px"></sup></h3>
 
     <p>Accepted projects</p>
   </div>
