@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2025 at 08:22 AM
+-- Generation Time: Feb 11, 2025 at 05:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `admin`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accepted_projects`
+--
+
+CREATE TABLE `accepted_projects` (
+  `id` int(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `details` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `contactno` varchar(255) NOT NULL,
+  `budget` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -103,15 +119,6 @@ CREATE TABLE `user_project` (
   `budget` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `user_project`
---
-
-INSERT INTO `user_project` (`id`, `title`, `type`, `details`, `email`, `contactno`, `budget`) VALUES
-(1, 'Dhairya', 'website', 'want to create website for freelancer', 'dhairyamakwana1208@gmail.com', '9773244867', '10000'),
-(2, 'twinder spot', 'website', 'want to create website for freelancer', 'hetkhatri22@gmail.com', '9173588345', '50000'),
-(3, 'parshwanath', 'website', 'i want to create a website on chemical ', 'nxzgaming577@gmail.com', '9173588345', '20000');
-
 -- --------------------------------------------------------
 
 --
@@ -141,6 +148,13 @@ INSERT INTO `user_signup` (`id`, `username`, `email`, `contactno`, `password`, `
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `accepted_projects`
+--
+ALTER TABLE `accepted_projects`
+  ADD PRIMARY KEY (`email`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indexes for table `admin_signup`
@@ -182,6 +196,12 @@ ALTER TABLE `user_signup`
 --
 
 --
+-- AUTO_INCREMENT for table `accepted_projects`
+--
+ALTER TABLE `accepted_projects`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `admin_signup`
 --
 ALTER TABLE `admin_signup`
@@ -203,7 +223,7 @@ ALTER TABLE `freelancer_signup`
 -- AUTO_INCREMENT for table `user_project`
 --
 ALTER TABLE `user_project`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user_signup`
