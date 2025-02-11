@@ -90,7 +90,7 @@ if (isset($_POST['accept'])) {
     $project = $result->fetch_assoc();
 
     // Step 2: Insert the project into the `accepted_projects` table
-    $insert_query = "INSERT INTO accepted_projects (id, title, type, details, email, contactno, budget) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $insert_query = "INSERT INTO accepted_projects (id, title,type,details, email, contactno, budget) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt_insert = $connection->prepare($insert_query);
     $stmt_insert->bind_param("issssss", 
         $project['id'], 
@@ -101,8 +101,8 @@ if (isset($_POST['accept'])) {
         $project['contactno'], 
         $project['budget']
     );
-    $stmt_insert->execute();
-
+    // $stmt_insert->execute();
+   
     // Step 3: Delete the project from the `user_project` table
     $delete_query = "DELETE FROM user_project WHERE id = ?";
     $stmt_delete = $connection->prepare($delete_query);
@@ -110,8 +110,8 @@ if (isset($_POST['accept'])) {
     $stmt_delete->execute();
 
     // Redirect to the same page to refresh the table
-    header("Location: " . $_SERVER['PHP_SELF']);
-    exit;
+    $message = "Project Accepted";
+    echo "<script type='text/javascript'>alert('$message');</script>";
 }
 ?>
 
@@ -130,11 +130,4 @@ if (isset($_POST['accept'])) {
   <script src="./src/js/bootstrap.bundle.min.js"></script>
   <script src="./src/js/adminlte.min.js"></script>
 </body>
-
 </html>
-<?php 
-$select1 = 'SELECT * from user_project';
-$execute = $connection->query($select1);
-if ($execute)
-    
-?>
