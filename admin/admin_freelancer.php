@@ -33,6 +33,7 @@
      ?>
       <table class="project">
         <tr>
+            <th> </th>
             <th>Username</th>
             <th>E-Mail</th>
             <th>Contact-No.</th>
@@ -44,6 +45,7 @@
         // Output data of each row
         while ($row = $result->fetch_assoc()) {
             echo "<tr>
+                    <td>" . $row["id"] . "</td>
                     <td>" . $row["username"] . "</td>
                     <td>" . $row["email"] . "</td>
                     <td>" . $row["contactno"] . "</td>

@@ -53,12 +53,14 @@
      ?>
       <table class="project">
         <tr>
+            <th> </th>
             <th>Title</th>
             <th>Type</th>
             <th>Details</th>
             <th>E-Mail</th>
             <th>Contact-No.</th>
             <th>Budget</th>
+            <th>Action</th>
           
         </tr>  
         <?php
@@ -67,6 +69,7 @@
         // Output data of each row
         while ($row = $result->fetch_assoc()) {
             echo "<tr>
+                    <td>" . $row["id"] . "</td>
                     <td>" . $row["title"] . "</td>
                     <td>" . $row["type"] . "</td>
                     <td>" . $row["details"] . "</td>
