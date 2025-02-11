@@ -52,8 +52,19 @@
                     <td>" . $row["email"] . "</td>
                     <td>" . $row["contactno"] . "</td>
                     <td>" . $row["budget"] . "</td>
-                    <td ><input type=button value=Accept name=btn class='accept'> </td>
-                    <td ><input type=button value=Reject name=btn class='reject'> </td>
+                    
+                     <td>
+        <form method='POST'>
+            <input type='hidden' name='project_id' value='" . $row["id" ] . "'>
+            <input type='submit' name='accept' value='Accept' class='accept'>
+        </form>
+    </td>
+    <td>
+        <form method='POST'>
+            <input type='hidden' name='project_id' value='" . $row["id"] . "'>
+            <input type='submit' name='reject' value='Reject' class='reject'>
+        </form>
+    </td>
                   </tr>";
         }
     } 
@@ -62,7 +73,48 @@
         echo "<tr><td colspan='4'>No records found</td></tr>";
       }
       ?>
-          
+      <!-- start -->
+        <?php
+
+
+// Check if the "Accept" button was clicked
+if (isset($_POST['accept'])) {
+    $project_id = $_POST['project_id'];
+
+    // Step 1: Get the project details from the `user_project` table
+    $select_query = "SELECT * FROM user_project WHERE id = ?";
+    $stmt = $connection->prepare($select_query);
+    $stmt->bind_param("i", $project_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $project = $result->fetch_assoc();
+
+    // Step 2: Insert the project into the `accepted_projects` table
+    $insert_query = "INSERT INTO accepted_projects (id, title, type, details, email, contactno, budget) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt_insert = $connection->prepare($insert_query);
+    $stmt_insert->bind_param("issssss", 
+        $project['id'], 
+        $project['title'], 
+        $project['type'], 
+        $project['details'], 
+        $project['email'], 
+        $project['contactno'], 
+        $project['budget']
+    );
+    $stmt_insert->execute();
+
+    // Step 3: Delete the project from the `user_project` table
+    $delete_query = "DELETE FROM user_project WHERE id = ?";
+    $stmt_delete = $connection->prepare($delete_query);
+    $stmt_delete->bind_param("i", $project_id);
+    $stmt_delete->execute();
+
+    // Redirect to the same page to refresh the table
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+?>
+
         
         
       </table>
