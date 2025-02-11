@@ -5,6 +5,7 @@
     <?php
     session_start();
     include('../Database/database_connectivity.php');
+    include("../utillities/functions.php");
     ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,8 +27,8 @@
       </div>
       <?php
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $email = test_input($_POST['email']);
+        $password = test_input($_POST['password']);
         $select = "select * from user_signup where email= '$email' AND password = '$password'";
         $execute = $connection->query($select);
         if ($execute && $execute->num_rows > 0) {

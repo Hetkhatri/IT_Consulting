@@ -3,183 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>signup Page</title>
+  <title>signup Page</title>    
+  <link rel="stylesheet" href="../css/login.css">
+
   <?php
   session_start();
-  include('../Database/database_connectivity.php')
+  include('../Database/database_connectivity.php');    
+  include("../utillities/functions.php");
   ?>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #dff6f0, #f1fcf8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .container {
-      width: 900px;
-      height: 500px;
-      display: flex;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      border-radius: 15px;
-      overflow: hidden;
-      background-color: #fff;
-    }
-
-    /* Left Side - Welcome Section */
-    .welcome-section {
-
-      background:#2a7c69;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
-      text-align: center;
-      position: absolute;
-      right:318px;
-      height: 57.6%;
-    }
-
-    .welcome-section h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    .welcome-section p {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .welcome-section button {
-      background-color: #fff;
-      color: #2a7c69;
-      border: none;
-      padding: 12px 30px;
-      font-size: 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .welcome-section button:hover {
-      background-color: #c2f3e9;
-    }
-
-    /* Right Side - Sign-Up Section */
-    .signup-section {
-      width: 50%;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      left: 100px;
-      position: absolute;
-      top:100px;
-    }
-
-    .signup-section h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    .signup-section .social-icons {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .signup-section .social-icons img {
-      width: 30px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .signup-section .social-icons img:hover {
-      transform: scale(1.2);
-    }
-
-    .signup-section form {
-      width: 100%;
-      max-width: 300px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .signup-section form input {
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    .signup-section form button {
-      background-color: #2a7c69;
-      color: #fff;
-      border: none;
-      padding: 12px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .signup-section form button:hover {
-      background-color: #1e5c4f;
-    }
-
-    /* Animation */
-   
-     .welcome-section{
-      border-bottom-left-radius: 200px;
-      border-top-left-radius: 200px;
-     }
-      .animation_section{
-       background: #2a7c69;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
-      text-align: center;
-      position: absolute;
-      top: 0px;
-
-      left:35px;
-      height: 90%;
-      width: 80%;
-    }
-    .togglePassword{
-      height:25px;
-      width:25px;
-      position:absolute;
-      top:335px;
-      left:545px
-    }
-    .back-image{
-      position: absolute;
-      left: 420px;
-      top:25px;
-      height:40px;
-      transition: transform 0.2s ease-in-out;
-    }
-    .back-image:hover{
-     height:40px;
-     position: absolute;
-      left: 420px;
-      transform: scale(1.2);
-      top:25px; 
-
-    }
+    
   </style>
 </head>
 <body>
@@ -215,10 +48,10 @@
   <?php
     if(isset($_REQUEST['btn']))
     {
-      $username = $_REQUEST['username'];
-      $email = $_REQUEST['email'];
-      $phone = $_REQUEST['phone'];
-      $password = $_REQUEST['password'];
+      $username = test_input($_REQUEST['username']);
+      $email = test_input($_REQUEST['email']);
+      $phone = test_input($_REQUEST['phone']);
+      $password = test_input($_REQUEST['password']);
       $insert ="insert into user_signup(username,email,contactno,password)values('".$username."','".$email."','".$phone."','".$password."')";
       $execute = $connection->query($insert);
       if($execute)
