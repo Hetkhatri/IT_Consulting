@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <?php
-    include('database_connectivity.php');
+    include('../Database/database_connectivity.php');
     session_start();
   ?>
   <meta charset="UTF-8">
@@ -182,7 +182,7 @@
   <div class="container">
     <!-- Left Side - Welcome Section -->
     <div class="welcome-section">
-      <a href="index.php"><img src="images/back.png" class="back-image"></a>
+      <a href="index.php"><img src="../includes/images/back.png" class="back-image"></a>
       <h2>Welcome Admin !</h2>
     </div>
 <?php
@@ -215,7 +215,7 @@
       <form method="POST">
         <input type="email" placeholder="Email" name="email" required />
         <input type="password" placeholder="Password"  id="password" required name="password"/>
-        <img src="images/hide.png" class="togglePassword" id="togglePassword">
+        <img src="../includes/images/hide.png" class="togglePassword" id="togglePassword">
         <input type="submit" value="Login" name="submit" class="input"> 
         <div class="forget">
         <a href="forgot_password.php">Forget Password?</a>

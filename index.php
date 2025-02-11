@@ -284,7 +284,7 @@ include('./includes/header.php');
                     <li><a href="#">projects</a></li>
                     <li><a href="#">about us</a></li>
                     <li><a href="#">contact</a></li>
-                    <li><a href="admin_login.php">Admin</a></li>
+                    <li><a href="admin/admin_login.php">Admin</a></li>
                 </ul>
             </div>
 
