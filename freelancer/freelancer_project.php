@@ -101,7 +101,7 @@ if (isset($_POST['accept'])) {
     if ($project = $result->fetch_assoc()) {
         // Ensure the correct column names match your database table
         $insert_query = "INSERT INTO accepted_projects 
-                        (title, type, details, email, contactno, budget, freelancer_id, freelancer_email) 
+                         (title, type, details, email, contactno, budget, freelancer_id, freelancer_email) 
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         $stmt_insert = $connection->prepare($insert_query);

@@ -60,7 +60,7 @@
             <th>E-Mail</th>
             <th>Contact-No.</th>
             <th>Budget</th>
-            <th>Action</th>
+            <th colspam=3>Action</th>
           
         </tr>  
         <?php
@@ -76,7 +76,25 @@
                     <td>" . $row["email"] . "</td>
                     <td>" . $row["contactno"] . "</td>
                     <td>" . $row["budget"] . "</td>
-                  </tr>";
+                    <td>
+                    <form method='POST'>
+            <input type='hidden' name='project_id' value='" . $row["id" ] . "'>
+            <input type='submit' name='accept' value='email' class='accept'>
+        </form>
+    </td>
+    <td>
+        <form method='POST'>
+            <input type='hidden' name='project_id' value='" . $row["id"] . "'>
+            <input type='submit' name='reject' value='Edit' class='reject'>
+        </form>
+    </td>
+    <td>
+        <form method='POST'>
+            <input type='hidden' name='project_id' value='" . $row["id"] . "'>
+            <input type='submit' name='reject' value='Detete' class='reject'>
+        </form>
+    </td>
+    </tr>";
         }
     } 
     else 
