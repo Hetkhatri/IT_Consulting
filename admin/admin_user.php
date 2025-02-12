@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="stylesheet" href="../css/freelancer_project.css">
   <link rel="stylesheet" href="../css/admin_project.css">
   <link rel="stylesheet" href="../src/css/adminlte.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -39,6 +40,7 @@
             <th>E-Mail</th>
             <th>Contact-No.</th>
             <th>password</th>
+            <th colspan=2>Action</th>
         </tr>  
         <?php
     if ($result->num_rows > 0) 
@@ -51,6 +53,18 @@
           <td>" . $row["email"] . "</td>
           <td>" . $row["contactno"] . "</td>
           <td>" . $row["password"] . "</td>
+          <td>
+              <form method='POST'>
+                <input type='hidden' name='project_id' value='" . $row["id" ] . "'>
+                <input type='submit' name='accept' value='Edit' class='accept'>
+              </form>
+          </td>
+          <td>
+             <form method='POST'>
+              <input type='hidden' name='project_id' value='" . $row["id"] . "'>
+              <input type='submit' name='reject' value='Delete' class='reject'>
+              </form>
+    </td>
           </tr>";
         }
     } 

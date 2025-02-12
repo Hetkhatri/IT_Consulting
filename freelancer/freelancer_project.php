@@ -52,8 +52,19 @@
                     <td>" . $row["email"] . "</td>
                     <td>" . $row["contactno"] . "</td>
                     <td>" . $row["budget"] . "</td>
-                    <td ><input type=button value=Accept name=btn class='accept'> </td>
-                    <td ><input type=button value=Reject name=btn class='reject'> </td>
+                    
+                     <td>
+        <form method='POST'>
+            <input type='hidden' name='project_id' value='" . $row["id" ] . "'>
+            <input type='submit' name='accept' value='Accept' class='accept'>
+        </form>
+    </td>
+    <td>
+        <form method='POST'>
+            <input type='hidden' name='project_id' value='" . $row["id"] . "'>
+            <input type='submit' name='reject' value='Reject' class='reject'>
+        </form>
+    </td>
                   </tr>";
         }
     } 
@@ -62,9 +73,52 @@
         echo "<tr><td colspan='4'>No records found</td></tr>";
       }
       ?>
-          
-        
-        
+      <!-- start -->
+        <?php
+
+
+// Check if the "Accept" button was clicked
+if (isset($_POST['accept'])) {
+  $project_id = $_POST['project_id'];
+
+  // Check if project exists
+  $select_query = "SELECT * FROM user_project WHERE id = ?";
+  $stmt = $connection->prepare($select_query);
+  $stmt->bind_param("i", $project_id);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  
+  if ($project = $result->fetch_assoc()) {
+      // Insert into accepted_projects
+      $insert_query = "INSERT INTO accepted_projects (id, title, type, details, email, contactno, budget) 
+                       VALUES (?, ?, ?, ?, ?, ?, ?)";
+      $stmt_insert = $connection->prepare($insert_query);
+      $stmt_insert->bind_param("issssss", 
+          $project['id'], 
+          $project['title'], 
+          $project['type'], 
+          $project['details'], 
+          $project['email'], 
+          $project['contactno'], 
+          $project['budget']
+      );
+
+      if ($stmt_insert->execute()) {
+          // Only delete if insertion was successful
+          $delete_query = "DELETE FROM user_project WHERE id = ?";
+          $stmt_delete = $connection->prepare($delete_query);
+          $stmt_delete->bind_param("i", $project_id);
+          $stmt_delete->execute();
+
+          echo "<script>alert('Project Accepted!');</script>";
+      } else {
+          echo "Failed to insert into accepted_projects: " . $stmt_insert->error;
+      }
+  } else {
+      echo "Project Not Found!";
+  }
+}
+?>      
       </table>
     </div>
 
@@ -78,11 +132,4 @@
   <script src="./src/js/bootstrap.bundle.min.js"></script>
   <script src="./src/js/adminlte.min.js"></script>
 </body>
-
 </html>
-<?php 
-$select1 = 'SELECT * from user_project';
-$execute = $connection->query($select1);
-if ($execute)
-    
-?>
