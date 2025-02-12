@@ -12,8 +12,6 @@ include('../Database/database_connectivity.php');
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
 
-   <link rel="stylesheet" href="../css/home.css">
-   <link rel="stylesheet" href="../css/f-home.css">
 
    <style>
        body {
@@ -22,7 +20,7 @@ include('../Database/database_connectivity.php');
        }
    </style>
 </head>
-<body>
+<body class="fbody">
     <!-- Header -->
     <header>
         <?php
@@ -116,5 +114,7 @@ include('../Database/database_connectivity.php');
         });
     </script>
 
+<link rel="stylesheet" href="../css/home.css">
+   <link rel="stylesheet" href="../css/f-home.css">
 </body>
 </html>
