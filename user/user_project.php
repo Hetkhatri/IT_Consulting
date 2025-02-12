@@ -111,7 +111,7 @@ include('user_header.php');
             }
             $stmt->close();
         } else {
-            // If 'email' is not in the session, set a default username
+            // If 'email' is not in tdQhe session, set a default username
             $email = "Not got your email";
             // Optionally redirect to login page if not logged in
             // header("Location: login.php");

@@ -1,127 +1,104 @@
 <?php
-session_start();
-error_reporting(0);
-include('includes/dbconnection.php');
-if (strlen($_SESSION['odmsaid'] == 0)) {
-    header('location:logout.php');
-}
+    session_start();
+    include('../Database/database_connectivity.php');
 ?>
-<!doctype html>
-<html lang="en" class="no-focus"> <!--<![endif]-->
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Onlind DJ Management System - New Booking</title>
-
-    <!-- <link rel="stylesheet" href="assets/js/plugins/datatables/dataTables.bootstrap4.min.css"> -->
-
-    <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="stylesheet" href="../css/admin_project.css">
+  <link rel="stylesheet" href="../src/css/adminlte.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+<body class="hold-transition sidebar-mini">
 
-<body>
-
-    <div id="page-container" class="sidebar-o sidebar-inverse side-scroll page-header-fixed main-content-narrow">
-
-        <?php include_once('includes/sidebar.php'); ?>
-
-        <?php include_once('includes/header.php'); ?>
-
-
-        <!-- Main Container -->
-        <main id="main-container">
-            <!-- Page Content -->
-            <div class="content">
-                <h2 class="content-heading">New Booking</h2>
-
-
-
-                <!-- Dynamic Table Full Pagination -->
-                <div class="block">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">New Booking</h3>
-                    </div>
-                    <div class="block-content block-content-full">
-                        <!-- DataTables init on table by adding .js-dataTable-full-pagination class, functionality initialized in js/pages/be_tables_datatables.js -->
-                        <table class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination">
-                            <thead>
-                                <tr>
-                                    <th class="text-center"></th>
-                                    <th>Booking ID</th>
-                                    <th class="d-none d-sm-table-cell">Cutomer Name</th>
-                                    <th class="d-none d-sm-table-cell">Mobile Number</th>
-                                    <th class="d-none d-sm-table-cell">Email</th>
-                                    <th class="d-none d-sm-table-cell">Booking Date</th>
-                                    <th class="d-none d-sm-table-cell">Status</th>
-                                    <th class="d-none d-sm-table-cell" style="width: 15%;">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $sql = "SELECT * from tblbooking where Status is null";
-                                $query = $dbh->prepare($sql);
-                                $query->execute();
-                                $results = $query->fetchAll(PDO::FETCH_OBJ);
-
-                                $cnt = 1;
-                                if ($query->rowCount() > 0) {
-                                    foreach ($results as $row) { ?>
-                                        <tr>
-                                            <td class="text-center"><?php echo htmlentities($cnt); ?></td>
-                                            <td class="font-w600"><?php echo htmlentities($row->BookingID); ?></td>
-                                            <td class="font-w600"><?php echo htmlentities($row->Name); ?></td>
-                                            <td class="font-w600"><?php echo htmlentities($row->MobileNumber); ?></td>
-                                            <td class="font-w600"><?php echo htmlentities($row->Email); ?></td>
-                                            <td class="font-w600">
-                                                <span
-                                                    class="badge badge-primary"><?php echo htmlentities($row->BookingDate); ?></span>
-                                            </td>
-                                            <?php $bstatus = $row->Status; ?>
-
-
-                                            <td><?php if ($bstatus == ''): ?>
-                                                    <span class="badge badge-warning">Not Processed Yet</span>
-                                                <?php elseif ($bstatus == 'Approved'): ?>
-                                                    <span class="badge badge-success"><?php echo htmlentities($bstatus); ?></span>
-                                                <?php elseif ($bstatus == 'Approved'): ?>
-                                                    <span class="badge badge-danger"><?php echo htmlentities($bstatus); ?></span>
-                                                <?php endif; ?>
-                                            </td>
-                                            <td class="d-none d-sm-table-cell"><a
-                                                    href="view-booking-detail.php?editid=<?php echo htmlentities($row->ID); ?>&&bookingid=<?php echo htmlentities($row->BookingID); ?>"
-                                                    class="btn btn-info btn-sm">View</a></td>
-                                        </tr>
-                                        <?php $cnt = $cnt + 1;
-                                    }
-                                } ?>
-
-
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <?php include_once('includes/footer.php'); ?>
+  <?php
+     if (isset($_SESSION['email'])) {
+      $email = $_SESSION['email'];           
+      // Database query to fetch username
+      $query = "SELECT title FROM accepted_projects WHERE email = ?";
+      $stmt = $connection->prepare($query);
+      $stmt->bind_param("s", $email);
+      $stmt->execute();
+      $result = $stmt->get_result();
+  
+      if ($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
+          $title = $row['title'];
+      } else {
+          $title = "Not Got";  // Default if user is not found in the database
+      }
+      $stmt->close();
+  } else {
+      // If 'email' is not in the session, set a default username
+      $title = "didnt get";
+      // Optionally redirect to login page if not logged in
+      // header("Location: login.php");
+      // exit();
+  }
+  ?>
+  <div class="wrapper">
+    <?php include 'admin_header.php' ?>
+    
+    <div class="content-wrapper">
+    <h1 class="head">Accepted Projects</h1>
+    <?php
+     $sql = "select * from user_project";
+     $result = $connection->query($sql);
+     ?>
+      <table class="project">
+        <tr>
+            <th> </th>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Details</th>
+            <th>E-Mail</th>
+            <th>Contact-No.</th>
+            <th>Budget</th>
+            <th>Action</th>
+          
+        </tr>  
+        <?php
+    if ($result->num_rows > 0) 
+    {
+        // Output data of each row
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>
+                    <td>" . $row["id"] . "</td>
+                    <td>" . $row["title"] . "</td>
+                    <td>" . $row["type"] . "</td>
+                    <td>" . $row["details"] . "</td>
+                    <td>" . $row["email"] . "</td>
+                    <td>" . $row["contactno"] . "</td>
+                    <td>" . $row["budget"] . "</td>
+                  </tr>";
+        }
+    } 
+    else 
+    {
+        echo "<tr><td colspan='4'>No records found</td></tr>";
+      }
+      ?>
+          
+        
+        
+      </table>
     </div>
 
-    <script src="assets/js/core/jquery.min.js"></script>
-    <script src="assets/js/core/popper.min.js"></script>
-    <script src="assets/js/core/bootstrap.min.js"></script>
-    <script src="assets/js/core/jquery.slimscroll.min.js"></script>
-    <script src="assets/js/core/jquery.scrollLock.min.js"></script>
-    <script src="assets/js/core/jquery.appear.min.js"></script>
-    <script src="assets/js/core/jquery.countTo.min.js"></script>
-    <script src="assets/js/core/js.cookie.min.js"></script>
-    <script src="assets/js/codebase.js"></script>
+    <?php include ('admin_footer.php'); ?>
+  </div>
 
-    <!-- Page JS Plugins -->
-    <!-- <script src="assets/js/plugins/datatables/jquery.dataTables.min.js"></script> -->
-    <!-- <script src="assets/js/plugins/datatables/dataTables.bootstrap4.min.js"></script> -->
+  <!-- jQuery -->
+  <script src="./src/js/jquery.min.js"></script>
 
-    <!-- Page JS Code -->
-    <!-- <script src="assets/js/pages/be_tables_datatables.js"></script> -->
+  <!-- Bootstrap 4 -->
+  <script src="./src/js/bootstrap.bundle.min.js"></script>
+  <script src="./src/js/adminlte.min.js"></script>
 </body>
 
 </html>
