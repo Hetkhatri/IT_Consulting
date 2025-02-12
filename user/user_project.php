@@ -117,8 +117,6 @@ include('user_header.php');
             // header("Location: login.php");
             // exit();
         }
-
-
         //Contact No
         if (isset($_SESSION['email'])) {
             $email = $_SESSION['email'];           

@@ -74,52 +74,64 @@
       }
       ?>
       <!-- start -->
-        <?php
+<!-- // Check if the "Accept" button was clicked -->
+<?php
+// session_start();
+// include('../Database/database_connectivity.php');
 
-
-// Check if the "Accept" button was clicked
 if (isset($_POST['accept'])) {
-  $project_id = $_POST['project_id'];
+    $project_id = $_POST['project_id'];
 
-  // Check if project exists
-  $select_query = "SELECT * FROM user_project WHERE id = ?";
-  $stmt = $connection->prepare($select_query);
-  $stmt->bind_param("i", $project_id);
-  $stmt->execute();
-  $result = $stmt->get_result();
-  
-  if ($project = $result->fetch_assoc()) {
-      // Insert into accepted_projects
-      $insert_query = "INSERT INTO accepted_projects (id, title, type, details, email, contactno, budget) 
-                       VALUES (?, ?, ?, ?, ?, ?, ?)";
-      $stmt_insert = $connection->prepare($insert_query);
-      $stmt_insert->bind_param("issssss", 
-          $project['id'], 
-          $project['title'], 
-          $project['type'], 
-          $project['details'], 
-          $project['email'], 
-          $project['contactno'], 
-          $project['budget']
-      );
+    // Check if freelancer is logged in
+    if (!isset($_SESSION['freelancer_id']) || !isset($_SESSION['freelancer_email'])) {
+        echo "<script>alert('Freelancer is not logged in!');</script>";
+        exit;
+    }
 
-      if ($stmt_insert->execute()) {
-          // Only delete if insertion was successful
-          $delete_query = "DELETE FROM user_project WHERE id = ?";
-          $stmt_delete = $connection->prepare($delete_query);
-          $stmt_delete->bind_param("i", $project_id);
-          $stmt_delete->execute();
+    $freelancer_id = $_SESSION['freelancer_id'];
+    $freelancer_email = $_SESSION['freelancer_email'];
 
-          echo "<script>alert('Project Accepted!');</script>";
-      } else {
-          echo "Failed to insert into accepted_projects: " . $stmt_insert->error;
-      }
-  } else {
-      echo "Project Not Found!";
-  }
+    // Check if project exists
+    $select_query = "SELECT * FROM user_project WHERE id = ?";
+    $stmt = $connection->prepare($select_query);
+    $stmt->bind_param("i", $project_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($project = $result->fetch_assoc()) {
+        // Ensure the correct column names match your database table
+        $insert_query = "INSERT INTO accepted_projects 
+                        (title, type, details, email, contactno, budget, freelancer_id, freelancer_email) 
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        $stmt_insert = $connection->prepare($insert_query);
+        $stmt_insert->bind_param("sss/sssss", 
+            $project['title'], 
+            $project['type'], 
+            $project['details'], 
+            $project['email'], 
+            $project['contactno'], 
+            $project['budget'],
+            $freelancer_id, 
+            $freelancer_email
+        );
+        if ($stmt_insert->execute()) {
+            // Update the project status instead of deleting
+            $update_query = "UPDATE user_project SET status = 'Accepted' WHERE id = ?";
+            $stmt_update = $connection->prepare($update_query);
+            $stmt_update->bind_param("i", $project_id);
+            $stmt_update->execute();
+
+            echo "<script>alert('Project Accepted Successfully!');</script>";
+        } else {
+            echo "Failed to insert into accepted_projects: " . $stmt_insert->error;
+        }
+    } else {
+        echo "Project Not Found!";
+    }
 }
-?>      
-      </table>
+?>
+     </table>
     </div>
 
     <?php include ('admin_footer.php'); ?>
