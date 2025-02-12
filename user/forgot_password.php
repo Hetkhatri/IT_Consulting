@@ -58,7 +58,7 @@
 
     .welcome-section button {
       background-color: #fff;
-      color: #2a7c69;
+      color: rgb(46, 104, 113);
       border: none;
       padding: 12px 30px;
       font-size: 16px;
@@ -122,7 +122,7 @@
     }
 
     .signup-section form button {
-      background-color: #2a7c69;
+      background-color: rgb(46, 104, 113);
       color: #fff;
       border: none;
       padding: 12px;
@@ -133,7 +133,7 @@
     }
 
     .signup-section form button:hover {
-      background-color: #1e5c4f;
+      background-color:rgb(34, 76, 82);
     }
 
     /* Animation */
