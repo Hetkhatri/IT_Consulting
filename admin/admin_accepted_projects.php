@@ -85,13 +85,13 @@
     <td>
         <form method='POST'>
             <input type='hidden' name='project_id' value='" . $row["id"] . "'>
-            <input type='submit' name='reject' value='Edit' class='reject'>
+            <input type='submit' name='edit' value='Edit' class='reject'>
         </form>
     </td>
     <td>
         <form method='POST'>
             <input type='hidden' name='project_id' value='" . $row["id"] . "'>
-            <input type='submit' name='reject' value='Detete' class='reject'>
+            <input type='submit' name='delete' value='Detete' class='reject'>
         </form>
     </td>
     </tr>";
@@ -102,7 +102,12 @@
         echo "<tr><td colspan='4'>No records found</td></tr>";
       }
       ?>
-          
+          <?php
+                if(isset('delete'))
+                {
+                    $sql = "delete * from accepted_projects"
+                }
+        ?>
         
         
       </table>
