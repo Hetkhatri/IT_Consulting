@@ -3,7 +3,7 @@
 <head>
   <?php
   session_start();
-    include('database_connectivity.php');
+    include('../Database/database_connectivity.php');
   ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -182,7 +182,7 @@
   <div class="container">
     <!-- Left Side - Welcome Section -->
     <div class="welcome-section">
-      <a href="index.php"><img src="images/back.png" class="back-image"></a>
+      <a href="../index.php"><img src="../includes/images/back.png" class="back-image"></a>
       <h2>Welcome User !</h2>
       <p>Don't have Account?</p>
       <a href="signup.php"><button>sign-up</button></a>
@@ -217,7 +217,7 @@
       <form method="post">
         <input type="email" placeholder="Email" name="email" required />
         <input type="password" placeholder="Password"  id="password" required name="password"/>
-        <img src="images/hide.png" class="togglePassword" id="togglePassword">
+        <img src="../includes/images/hide.png" class="togglePassword" id="togglePassword">
         <button type="submit" >Login</button>
         <div class="forget">
         <a href="forgot_password.php">Forget Password?</a>
