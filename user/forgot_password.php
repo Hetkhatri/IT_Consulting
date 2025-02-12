@@ -33,7 +33,7 @@
     /* Left Side - Welcome Section */
     .welcome-section {
 
-      background:#2a7c69;
+      background:rgb(46, 104, 113);
       color: #fff;
       display: flex;
       flex-direction: column;
@@ -143,7 +143,7 @@
       border-top-left-radius: 200px;
      }
       .animation_section{
-       background: #2a7c69;
+       background: rgb(46, 104, 113);
       color: #fff;
       display: flex;
       flex-direction: column;
@@ -188,7 +188,7 @@
   <div class="container">
     <!-- Left Side - Welcome Section -->
     <div class="welcome-section">
-    <a href="index.php"><img src="images/back.png" class="back-image"></a>
+    <a href="../index.php"><img src="../includes/images/back.png" class="back-image"></a>
       <h2>Welcome!</h2>
       <pre>         Enter your email to reset your password                </pre>
       <a href ="login.php"><button>Login In</button></a>
