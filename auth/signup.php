@@ -21,7 +21,7 @@
     <div class="container">
       <!-- Left Side - Welcome Section -->
       <div class="welcome-section">
-        <a href="index.php"><img src="../includes/images/back.png" class="back-image"></a>
+        <a href="../index.php"><img src="../includes/images/back.png" class="back-image"></a>
         <h2>Welcome!</h2>
         <p>Enter your personal details to use all of the site features.</p>
         <a href="login.php"><button>Log In</button></a>
