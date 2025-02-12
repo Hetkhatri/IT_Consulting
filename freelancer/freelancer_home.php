@@ -14,10 +14,7 @@ include('../Database/database_connectivity.php');
     <link rel="stylesheet" href="../css/fh.css">
 
    <style>
-       body {
-           background-color: black;
-           /* background-image: linear-gradient(90deg, #8BC6EC 0%, #9599E2 100%); */
-       }
+       
    </style>
 </head>
 <body class="fbody">

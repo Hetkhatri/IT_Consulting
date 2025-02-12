@@ -41,7 +41,7 @@ nav a {
 
 /* Hero Section */
 .hero {
-    background-color: #2B547E;
+    background-color:  rgb(46, 104, 113);
     color: #fff;
     padding: 190px 20px;
     text-align: center;
@@ -75,7 +75,7 @@ nav a {
 
 .cta-btn:hover {
     border: 1px solid #FFA500;
-    background: #2B547E;
+    background:rgb(34, 76, 82);
 }
 
 /* Completed Projects Section */
@@ -235,7 +235,7 @@ footer p {
 .user{
     font-family: 'Arial', sans-serif;
     margin-top:-30px;
-    background: #2B547E;
+    background: rgb(46, 104, 113);
 
 }
 .user h1{
