@@ -71,10 +71,14 @@
               <button class='accept' onclick='openPopup(" . $row["id"] . ", " . json_encode($row) . ")'>Edit</button>
             </td>
             <td>
-              <form method='POST' action='delete_user.php'>
-                <input type='hidden' name='user_id' value='" . $row["id"] . "'>
-                <input type='submit' name='delete' value='Delete' class='reject'>
-              </form>
+              <td>
+                  <form method='POST'>
+                      <input type='hidden' name='user_id' value="<?php echo $row['id']; ?>">
+                      <input type='submit' name='delete' value='Delete' class='reject'>
+                  </form>
+
+          </td>
+
             </td>
           </tr>";
           }
@@ -84,6 +88,28 @@
         ?>
       </table>
     </div>
+    <?php
+if (isset($_POST['delete'])) {
+    if (isset($_POST['user_id'])) {
+        $user_id = $_POST['user_id'];
+
+        // Prepare delete query
+        $sql = "DELETE FROM user_signup WHERE id = ?";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param("i", $user_id);
+
+        if ($stmt->execute()) {
+            echo "<script>alert('User deleted successfully');</script>";
+            echo "<script>window.location.href='admin_user.php';</script>"; // Refresh the page
+        } else {
+            echo "<script>alert('Error deleting user');</script>";
+        }
+        $stmt->close();
+    } else {
+        echo "<script>alert('User ID not provided');</script>";
+    }
+}
+?>
 
     <!-- Popup Form -->
     <div id="editPopup" class="popup">
@@ -102,7 +128,7 @@
         <button type="button" class="close" onclick="closePopup()">Close</button>
       </form>
     </div>
-
+           
     <script>
       function openPopup(id, data) {
         document.getElementById("edit_id").value = data.id;

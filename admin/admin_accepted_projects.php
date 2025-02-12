@@ -102,12 +102,24 @@
         echo "<tr><td colspan='4'>No records found</td></tr>";
       }
       ?>
-          <?php
-                if(isset('delete'))
-                {
-                    $sql = "delete * from accepted_projects"
+         <?php
+            if (isset($_POST['delete'])) {
+                $project_id = $_POST['project_id'];
+                // Prepare delete query
+                $sql = "DELETE FROM user_project WHERE id = ?";
+                $stmt = $connection->prepare($sql);
+                $stmt->bind_param("i", $project_id);
+
+                if ($stmt->execute()) {
+                    echo "<script>alert('Project deleted successfully');</script>";
+                    echo "<script>window.location.href='admin_accepted_prokects.php';</script>"; // Redirect to refresh the page
+                } else {
+                    echo "<script>alert('Error deleting project');</script>";
                 }
-        ?>
+                $stmt->close();
+                }
+?>
+
         
         
       </table>
