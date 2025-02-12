@@ -79,37 +79,44 @@
 
 // Check if the "Accept" button was clicked
 if (isset($_POST['accept'])) {
-    $project_id = $_POST['project_id'];
+  $project_id = $_POST['project_id'];
 
-    // Step 1: Get the project details from the `user_project` table
-    $select_query = "SELECT * FROM user_project WHERE id = ?";
-    $stmt = $connection->prepare($select_query);
-    $stmt->bind_param("i", $project_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $project = $result->fetch_assoc();
+  // Check if project exists
+  $select_query = "SELECT * FROM user_project WHERE id = ?";
+  $stmt = $connection->prepare($select_query);
+  $stmt->bind_param("i", $project_id);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  
+  if ($project = $result->fetch_assoc()) {
+      // Insert into accepted_projects
+      $insert_query = "INSERT INTO accepted_projects (id, title, type, details, email, contactno, budget) 
+                       VALUES (?, ?, ?, ?, ?, ?, ?)";
+      $stmt_insert = $connection->prepare($insert_query);
+      $stmt_insert->bind_param("issssss", 
+          $project['id'], 
+          $project['title'], 
+          $project['type'], 
+          $project['details'], 
+          $project['email'], 
+          $project['contactno'], 
+          $project['budget']
+      );
 
-    // Step 2: Insert the project into the `accepted_projects` table
-    $insert_query = "INSERT INTO accepted_projects (id, title,type, details, email, contactno, budget) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    $stmt_insert = $connection->prepare($insert_query);
-    $stmt_insert->bind_param("issssss", 
-        $project['id'], 
-        $project['title'], 
-        $project['type'], 
-        $project['details'], 
-        $project['email'], 
-        $project['contactno'], 
-        $project['budget']
-    );
-    // $stmt_insert->execute();
+      if ($stmt_insert->execute()) {
+          // Only delete if insertion was successful
+          $delete_query = "DELETE FROM user_project WHERE id = ?";
+          $stmt_delete = $connection->prepare($delete_query);
+          $stmt_delete->bind_param("i", $project_id);
+          $stmt_delete->execute();
 
-    // Step 3: Delete the project from the `user_project` table
-    $delete_query = "DELETE FROM user_project WHERE id = ?";
-    $stmt_delete = $connection->prepare($delete_query);
-    $stmt_delete->bind_param("i", $project_id);
-    $stmt_delete->execute();
-
-    // Redirect to the same page to refresh the table
+          echo "<script>alert('Project Accepted!');</script>";
+      } else {
+          echo "Failed to insert into accepted_projects: " . $stmt_insert->error;
+      }
+  } else {
+      echo "Project Not Found!";
+  }
 }
 ?>      
       </table>
