@@ -220,10 +220,10 @@
         <img src="../includes/images/hide.png" class="togglePassword" id="togglePassword">
         <button type="submit" >Login</button>
         <div class="forget">
-        <a href="forgot_password.php">Forget Password?</a>
+        <a href="../user/forgot_password.php">Forget Password?</a>
         </div>
         <div class="admin">
-        <a href="freelancer_login.php">Click Here for freelancer Login/Signup !</a>
+        <a href="../freelancer/freelancer_login.php">Click Here for freelancer Login/Signup !</a>
       </div>
     </form>
     </div>
