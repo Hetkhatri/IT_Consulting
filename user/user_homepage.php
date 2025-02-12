@@ -61,7 +61,7 @@
 
         /* Hero Section */
         .hero {
-            background-color: #2B547E;
+            background-color: rgb(46, 104, 113);
             color: #fff;
             padding: 190px 20px;
             text-align: center;

@@ -11,7 +11,7 @@
 
 .navbar {
   padding: 40px;
-  background: #2b547e;
+  background: rgb(46, 104, 113);
 }
 
 .navbar .navbar-toggler {
@@ -44,7 +44,7 @@
 }
 
 .navbar .collapse {
-  background: #2b547e;
+  background: rgb(46, 104, 113);
 }
 
 .navbar .dropdown-menu {
@@ -52,13 +52,13 @@
 }
 
 .navbar .dropdown-menu li a {
-  color: #1c456d;
+  color:  rgb(46, 104, 113);
   font-size: 15px;
 }
 
 .navbar ul li .bi {
   background: #fff;
-  color: #1c456d;
+  color: rgb(46, 104, 113);
   font-weight: bold;
   padding: 10px 15px;
   border-radius: 50%;
@@ -78,7 +78,7 @@
 
 .name {
   font-size: 30px;
-  background-color: #2b547e;
+  background-color: rgb(46, 104, 113);
   color: #ffa500;
   padding: 50px;
 }
@@ -87,7 +87,7 @@
 
 .hero-section {
   padding: 20px;
-  background: #2b547e;
+  background: rgb(46, 104, 113);
 }
 
 .hero-section .text-content {
