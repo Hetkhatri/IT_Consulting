@@ -90,40 +90,40 @@ foreach ($menuItems as $menuItem) {
         </div>
     </div>
 </div>
-<?php
+<?php   
 include('../Database/database_connectivity.php');
-// Check if the session variable 'email' is set
+   // Check if the session variable 'email' is set
 ?>
-<?php
-// Check if the session variable 'email' is set
-if (isset($_SESSION['email'])) {
-    $email = $_SESSION['email'];
-    // Database query to fetch username
-    $query = "SELECT username FROM admin_signup WHERE email = '$email'";
-    $stmt = $connection->prepare($query);
-    //  $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $username = $row['username'];
-    } else {
-        $username = "Guest1";  // Default if user is not found in the database
-    }
-    $stmt->close();
-} else {
-    // If 'email' is not in the session, set a default username
-    $username = "Guest";
-    // Optionally redirect to login page if not logged in
-    // header("Location: login.php");
-    // exit();
-}
+     <?php  
+     // Check if the session variable 'email' is set
+     if (isset($_SESSION['email'])) {
+         $email = $_SESSION['email']; 
+         // Database query to fetch username
+         $query = "SELECT username FROM freelancer_signup WHERE email = '$email'";
+         $stmt = $connection->prepare($query);
+        //  $stmt->bind_param("s", $email);
+         $stmt->execute();
+         $result = $stmt->get_result();
+     
+         if ($result->num_rows > 0) {
+             $row = $result->fetch_assoc();
+             $username = $row['username'];
+         } else {
+             $username = "Guest1";  // Default if user is not found in the database
+         }
+         $stmt->close();    
+     } else {
+         // If 'email' is not in the session, set a default username
+         $username = "Guest";
+         // Optionally redirect to login page if not logged in
+         // header("Location: login.php");
+         // exit();
+     }
 ?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="./" class="brand-link">
         <img src="../src/images/logo.png" alt="Admin Panel Logo" class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-light"><?php echo $username ?></span>
+        <span class="brand-text font-weight-light"><?php echo $username?></span>
     </a>
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">

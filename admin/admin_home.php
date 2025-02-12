@@ -1,7 +1,6 @@
-
 <?php
-    session_start();
-    include('../Database/database_connectivity.php');
+session_start();
+include('../Database/database_connectivity.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,36 +26,37 @@
 
           <div class="row">
             <div class="col-lg-3 col-6">
-            <?php
-        $sql = "SELECT COUNT(*) AS total FROM user_project";
-        $result = $connection->query($sql);
-        if($result->num_rows > 0) {
-          $row = $result->fetch_assoc();
-          $total_entries = $row["total"];
-      }
-        ?>
+              <?php
+              $sql = "SELECT COUNT(*) AS total FROM user_project";
+              $result = $connection->query($sql);
+              if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $total_entries = $row["total"];
+              }
+              ?>
               <div class="small-box bg-info">
-                <div class="inner"> 
-                  <h3><?php echo $total_entries?></h3>
+                <div class="inner">
+                  <h3><?php echo $total_entries ?></h3>
 
                   <p>Projects</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
                 </div>
-                <a href="admin_project.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="admin_project.php" class="small-box-footer">More info <i
+                    class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
 
 
             <?php
-        $sql = "SELECT COUNT(*) AS total FROM user_signup";
-        $result = $connection->query($sql);
-        if($result->num_rows > 0) {
-          $row = $result->fetch_assoc();
-          $total_entries = $row["total"];
-      }
-        ?>
+            $sql = "SELECT COUNT(*) AS total FROM user_signup";
+            $result = $connection->query($sql);
+            if ($result->num_rows > 0) {
+              $row = $result->fetch_assoc();
+              $total_entries = $row["total"];
+            }
+            ?>
             <div class="col-lg-3 col-6">
               <div class="small-box bg-warning">
                 <div class="inner">
@@ -67,18 +67,19 @@
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
                 </div>
-                <a href="admin_user.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="admin_user.php" class="small-box-footer">More info <i
+                    class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <div class="col-lg-3 col-6">
-            <?php
-        $sql = "SELECT COUNT(*) AS total FROM freelancer_signup";
-        $result = $connection->query($sql);
-        if($result->num_rows > 0) {
-          $row = $result->fetch_assoc();
-          $total_entries = $row["total"];
-      }
-      ?>
+              <?php
+              $sql = "SELECT COUNT(*) AS total FROM freelancer_signup";
+              $result = $connection->query($sql);
+              if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $total_entries = $row["total"];
+              }
+              ?>
               <div class="small-box bg-danger">
                 <div class="inner">
                   <h3><?php echo $total_entries ?></h3>
@@ -88,32 +89,34 @@
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="admin_freelancer.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="admin_freelancer.php" class="small-box-footer">More info <i
+                    class="fas fa-arrow-circle-right"></i></a>
               </div>
 
             </div>
             <div class="col-lg-3 col-6">
 
-<div class="small-box bg-success">
-  <div class="inner">
-    <h3>88<sup style="font-size: 20px"></sup></h3>
+              <div class="small-box bg-success">
+                <div class="inner">
+                  <h3>88<sup style="font-size: 20px"></sup></h3>
 
-    <p>Accepted projects</p>
-  </div>
-  <div class="icon">
-    <i class="ion ion-stats-bars"></i>
-  </div>
-  <a href="admin_accepted_projects.php" class="small-box-footer">More info<i class="fas fa-arrow-circle-right"></i></a>
-</div>
-</div>
+                  <p>Accepted projects</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="admin_accepted_projects.php" class="small-box-footer">More info<i
+                    class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
           </div>
 
         </div>
-        
+
       </section>
     </div>
 
-    <?php include ('admin_footer.php'); ?>
+    <?php include('admin_footer.php'); ?>
   </div>
 
   <!-- jQuery -->
