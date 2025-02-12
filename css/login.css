@@ -23,7 +23,7 @@ body {
 .welcome-section {
   width: 45%;
   right: 500px;
-  background: #2a7c69;
+  background: rgb(46, 104, 113);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -45,7 +45,7 @@ body {
 
 .welcome-section button {
   background-color: #fff;
-  color: #2a7c69;
+  color: rgb(46, 104, 113);
   border: none;
   padding: 12px 30px;
   font-size: 16px;
@@ -109,7 +109,7 @@ body {
 
 .signup-section form button,
 #input {
-  background-color: #2a7c69;
+  background-color: rgb(46, 104, 113);
   color: #fff;
   border: none;
   padding: 12px;
@@ -121,7 +121,7 @@ body {
 
 .signup-section form button:hover,
 #input {
-  background-color: #1e5c4f;
+  background-color: rgb(34, 76, 82);
 }
 
 .welcome-section {
@@ -174,4 +174,8 @@ body {
   left: 330px;
   top: 130px;
   transform: scale(1.2);
+}
+
+.back-a{
+  background-color: #c2f3e9;
 }

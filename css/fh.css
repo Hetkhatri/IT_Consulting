@@ -1,0 +1,25 @@
+.card-container{
+    height: auto;
+    width:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards{
+
+    border-radius: 15px;
+    height: 45vh;
+    width: 40vh;
+    margin:1rem;
+    padding: 10px;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform .1s;
+}
+
+.cards:hover{
+
+    transform: scale(1.05);
+}

@@ -1,0 +1,27 @@
+.services-section .services .card {
+    border: none;
+    border-radius: 15px;
+    width: 280px;
+    height: 320px;
+    padding: 10px;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform .1s;
+  }
+  
+
+  .services-section .services .card:hover {
+    background-color: #2b547e;
+    color: #fff;
+    transform: scale(1.05);
+  }
+
+  
+.project-section .project .card {
+  transition: transform .08s;
+}
+
+.contact-section .info-box {
+  transition: transform .08s;
+}

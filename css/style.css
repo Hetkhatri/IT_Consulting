@@ -140,18 +140,6 @@
   margin-bottom: 40px;
 }
 
-.services-section .services .card {
-  border: none;
-  border-radius: 15px;
-  width: 280px;
-  height: 320px;
-  padding: 10px;
-  cursor: pointer;
-  background: transparent;
-  box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.3);
-  transition: transform 1.2s ease-out;
-}
-
 .services-section .services .card img {
   border-radius: 50%;
   width: 80px;
@@ -160,12 +148,6 @@
   margin-left: 30px;
   margin-top: 30px;
   background: #f0f0f0;
-}
-
-.services-section .services .card:hover {
-  background-color: #2b547e;
-  color: #fff;
-  transform: scale(1.1);
 }
 
 .services-section .services .card:hover h4 {

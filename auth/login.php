@@ -20,7 +20,7 @@
   <div class="container">
     <!-- Left Side - Welcome Section -->
     <div class="welcome-section">
-      <a href="index.php"><img src="../includes/images/back.png" class="back-image"></a>
+      <a href="index.php" class="back-a"><img src="../includes/images/back.png" class="back-image"></a>
       <h2>Welcome User !</h2>
       <p>Don't have Account?</p>
       <a href="signup.php"><button>sign-up</button></a>

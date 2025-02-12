@@ -11,7 +11,7 @@ include('../Database/database_connectivity.php');
     <title>Freelancer Projects</title>
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
-
+    <link rel="stylesheet" href="../css/fh.css">
 
    <style>
        body {
@@ -66,6 +66,25 @@ include('../Database/database_connectivity.php');
         <p>Effortlessly connect with top freelancers using our intelligent algorithm. The best match for your project is just a click away.</p>
         <a href="freelancer_project.php"><button class="cta-btn" id="getStartedBtn">Get Projects</button></a>
     </section>
+
+    <div class="card-container">
+        <div class="cards">
+            <h4></h4>
+            <p></p>
+        </div>
+        <div class="cards">
+            <h4></h4>
+            <p></p>
+        </div>
+        <div class="cards">
+            <h4></h4>
+            <p></p>
+        </div>
+        <div class="cards">
+            <h4></h4>
+            <p></p>
+        </div>
+    </div>
  
 
     <!-- Footer -->

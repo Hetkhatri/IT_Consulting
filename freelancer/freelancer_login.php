@@ -53,7 +53,7 @@ include "../utillities/functions.php";
           <a href="forgot_password.php">Forget Password?</a>
         </div>
         <div class="admin">
-          <a href="login.php">Click Here for User Login/Signup !</a>
+          <a href="../auth/login.php">Click Here for User Login/Signup !</a>
         </div>
       </form>
     </div>
