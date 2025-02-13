@@ -21,7 +21,7 @@
      if (isset($_SESSION['email'])) {
       $email = $_SESSION['email'];           
       // Database query to fetch username
-      $query = "SELECT title FROM accepted_projects WHERE email = ?";
+      $query = "SELECT title FROM accepted_projects WHERE email = ?";   
       $stmt = $connection->prepare($query);
       $stmt->bind_param("s", $email);
       $stmt->execute();
@@ -79,7 +79,7 @@
                     <td>
                     <form method='POST'>
             <input type='hidden' name='project_id' value='" . $row["id" ] . "'>
-            <input type='submit' name='accept' value='email' class='accept'>
+            <input type='submit' name='email' value='email' class='accept'>
         </form>
     </td>
     <td>
@@ -112,7 +112,7 @@
 
                 if ($stmt->execute()) {
                     echo "<script>alert('Project deleted successfully');</script>";
-                    echo "<script>window.location.href='admin_accepted_prokects.php';</script>"; // Redirect to refresh the page
+                    echo "<script>window.location.href='accepted_projects.php';</script>"; // Redirect to refresh the page
                 } else {
                     echo "<script>alert('Error deleting project');</script>";
                 }
@@ -120,7 +120,11 @@
                 }
 ?>
 
-        
+        <?php
+            if (isset($_POST["email"])) {
+                echo "button clicked";
+            }
+        ?>
         
       </table>
     </div>
