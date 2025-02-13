@@ -39,11 +39,11 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 40px;
+      padding: 45px;
       text-align: center;
       position: absolute;
-      right:265px;
-      height: 46.6%;
+      right: 318px;
+      height: 56.19%;
     }
 
     .welcome-section h2 {
@@ -82,7 +82,7 @@
       position: absolute;
       left: 90px;
       position: absolute;
-      top:180px;
+      top: 80px;
     }
 
     .signup-section h2 {
@@ -162,8 +162,8 @@
       height:25px;
       width:25px;
       position:absolute;
-      top:340px;
-      left:515px
+      top:336px;
+      left:545px;
     }
     .back-image{
       position: absolute;
