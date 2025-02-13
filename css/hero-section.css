@@ -1,0 +1,46 @@
+/* hero section  */
+
+.hero-section {
+    padding: 20px;
+    background: rgb(46, 104, 113);
+  }
+  
+  .hero-section .text-content {
+    margin-top: 150px;
+  }
+  
+  .hero-section h1 {
+    font-size: 60px;
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  
+  .hero-section p {
+    margin-top: 30px;
+    color: #d1d1d1;
+  }
+  
+  .hero-section button {
+    margin-top: 20px;
+    border-radius: 30px;
+    background-color: #ffa500;
+    height: 50px;
+    width: 170px;
+  }
+  
+  .hero-section button:hover {
+    border: 1px solid #ffa500;
+    background: #2b547e;
+  }
+  
+  .hero-section button a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .hero-section img {
+    height: 600px;
+    width: 1000px;
+  }
+  
