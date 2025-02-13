@@ -140,7 +140,7 @@ include('./includes/header.php');
                         <div class="text">
                             <h4 class="card-title">SaaS Website</h4>
                             <p class="card-text">Development. Jan 19,2024</p>
-                            <button>see project</button>
+                            <a href="./cooming_soon/index.html"> <button>see project</button></a>
                         </div>
                     </div>
                 </div>
@@ -153,7 +153,7 @@ include('./includes/header.php');
                         <div class="text">
                             <h4 class="card-title">Travel Website</h4>
                             <p class="card-text">UI/UX Jun 29,2023</p>
-                            <button>see project</button>
+                            <a href="./cooming_soon/index.html"> <button>see project</button></a>
                         </div>
                     </div>
                 </div>
@@ -167,7 +167,7 @@ include('./includes/header.php');
                         <div class="text">
                             <h4 class="card-title">Travel Website</h4>
                             <p class="card-text">UI/UX Aug 9,2023</p>
-                            <button>see project</button>
+                            <a href="./cooming_soon/index.html"> <button>see project</button></a>
                         </div>
                     </div>
                 </div>
@@ -180,7 +180,7 @@ include('./includes/header.php');
                         <div class="text">
                             <h4 class="card-title">SaaS Website</h4>
                             <p class="card-text">Development. May 25 ,2022</p>
-                            <button>see project</button>
+                            <a href="./cooming_soon/index.html"> <button>see project</button></a>
                         </div>
                     </div>
                 </div>

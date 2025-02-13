@@ -438,6 +438,7 @@ mark {
 .img-fluid {
   max-width: 100%;
   height: auto;
+  aspect-ratio: 16/9;
 }
 .img-thumbnail {
   padding: 0.25rem;
