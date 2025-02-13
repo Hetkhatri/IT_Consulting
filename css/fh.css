@@ -4,12 +4,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .cards{
-
     border-radius: 15px;
-    height: 45vh;
+    height: auto;
     width: 40vh;
     margin:1rem;
     padding: 10px;
@@ -22,4 +22,18 @@
 .cards:hover{
 
     transform: scale(1.05);
+}
+
+.card-image-top{
+    height: 10rem;
+    width: 10rem;
+}
+.card-title{
+    font-size:1.4rem;
+    margin: .5rem .5rem .5rem 0 ;
+}
+
+.card-text{
+    font-size:1.2rem;
+    margin-top:.2rem;
 }

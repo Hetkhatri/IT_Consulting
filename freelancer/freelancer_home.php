@@ -66,20 +66,40 @@ include('../Database/database_connectivity.php');
 
     <div class="card-container">
         <div class="cards">
-            <h4></h4>
-            <p></p>
+            <img src="../includes/images/brand.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title">Branding</h4>
+                        <p class="card-text">Brand identity represents the visual elements and assets
+                                    that
+                                    distinguish a brand.</p>
+                </div>        
+        </div>
+        <div class="cards"><img src="../includes/images/research.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h4 class="card-title">Research</h4>
+                                <p class="card-text">We build effective strategies to help you reach customers
+                                    and
+                                    prospects
+                                    across the entire.</p>
+                            </div>
+        </div>
+        <div class="cards"><img src="../includes/images/ux.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h4 class="card-title">UI/UX Design</h4>
+                                <p class="card-text">UI/UX design services focus on creating intuitive &
+                                    user-centric
+                                    interfaces for digital products.</p>
+                            </div>
         </div>
         <div class="cards">
-            <h4></h4>
-            <p></p>
-        </div>
-        <div class="cards">
-            <h4></h4>
-            <p></p>
-        </div>
-        <div class="cards">
-            <h4></h4>
-            <p></p>
+        <img src="../includes/images/app-development.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h4 class="card-title">Development</h4>
+                                <p class="card-text">A concept is brought to life through the services various
+                                    stages, such
+                                    as planning, testing and deployment.</p>
+                            </div>
+
         </div>
     </div>
  
