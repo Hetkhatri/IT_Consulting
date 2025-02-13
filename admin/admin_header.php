@@ -30,7 +30,8 @@ foreach ($menuItems as $menuItem) {
         }
     }
 }
-?>
+?><ul class="navbar-nav ml-auto">
+     
 
 <head>
     <title><?= $pageTitle ?></title>
@@ -48,27 +49,15 @@ foreach ($menuItems as $menuItem) {
             <a onclick="logout()" class="nav-link">Logout</a>
         </li>
     </ul>
-    <form class="form-inline ml-3">
+    <!-- <form class="form-inline ml-3">
         <div class="input-group input-group-sm">
             <input class="form-control form-control-navbar" type="search" placeholder="Search" name="search">
             <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit"><i class="fas fa-search"></i></button>
             </div>
         </div>
-    </form>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-            <a class="nav-link" href="#messages">
-                <i class="far fa-comments"></i>
-                <span class="badge badge-danger navbar-badge">2</span>
-            </a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link" href="#notifications">
-                <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge">5</span>
-            </a>
-        </li>
+    </form> -->
+       
     </ul>
 </nav>
 
