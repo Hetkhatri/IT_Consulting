@@ -25,9 +25,13 @@
             line-height: 1.6;
         }
 
-        /* Header */
-        header {
+         /* Header */
+         header {
             
+        }
+        .navbar {
+         padding: 40px;
+          background: rgb(46, 104, 113);
         }
 
         header h1 {
@@ -56,7 +60,7 @@
         }
 
         nav a:hover {
-            background-color: #
+            background-color: rgb(46, 104, 113);
             border-radius: 5px;
         }
 
@@ -426,7 +430,7 @@
             const projectType = document.getElementById('projectType').value;
             const budget = document.getElementById('budget').value;
             
-            alert(Project Submitted: ${projectName}\nType: ${projectType}\nBudget: ${budget}\nDescription: ${projectDescription});
+            alert(Project Submitted: ${projectName}\n Type: ${projectType}\nBudget: ${budget}\nDescription: ${projectDescription});
             document.getElementById('formContainer').style.display = 'none';
         });
 

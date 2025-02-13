@@ -20,7 +20,7 @@ include('user_header.php');
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
-            background-color: #fff;
+            background-color: #2e6871;
 
 
         }
@@ -45,7 +45,7 @@ include('user_header.php');
             border-radius: 20px;
             padding:20px;
             margin-top:50px;
-            border:5px solid black;
+            border:7px double black;
 
         }
         
@@ -55,13 +55,14 @@ include('user_header.php');
             margin-bottom: 20px;
             padding: 10px;
             border: none;
-            outline: 0.5vh solid #CCCCE5;  
+            outline: 0.5vh solid rgb(29, 29, 34);  
             font-size: 1.5em;
-            background: transparent;
+            background:rgb(195, 229, 234);
+            border-radius: 7px;
         }
 
         .h1 {
-            color: black;
+            color: white;
             font-size: 1.5em;
             margin-bottom: 5vh;
         }
@@ -84,13 +85,18 @@ include('user_header.php');
             font-size: 1.5em;
             color: black;
             background: transparent;
-            outline: 0.5vh solid rgb(56, 56, 58);  
+            outline: 0.5vh solid rgb(28, 28, 34);  
             font-weight: 700;
+            border-radius: 7px;
         }
 
         button:hover{
             background:rgb(74, 184, 236);
             transition: 0.5s ease-in;
+        }
+        .tex{
+            margin-left: 53vh;
+            color: white;
         }
     </style>
 </head>
@@ -142,9 +148,12 @@ include('user_header.php');
             // exit();
         }
     ?>
+    <h1 class="tex">
+        TELL US ABOUT YOUR PROJECT 🗒
+    </h1>
     <div class="form-container">
         <div class="form-all">
-       <h1 class="h1"><u>TELL US ABOUT YOUR PROJECT</u></h1>
+       <h1 class="h1"> FILL THISH FORM ✍🏻</h1>
         <form action="#" method="POST">
             <div class="form-input">
                 <input type="text" placeholder="Project Title" required name="title">
@@ -183,5 +192,6 @@ include('user_header.php');
           }
         }
       ?>
+      <link rel="stylesheet" href="../css/header.css">
 </body>
 </html>
