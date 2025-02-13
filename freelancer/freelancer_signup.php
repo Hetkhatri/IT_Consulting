@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>signup Page</title>
   <?php
-  include('database_connectivity.php')
+  include('../Database/database_connectivity.php')
   ?>
   <style>
     body {
@@ -185,7 +185,7 @@
   <div class="container">
     <!-- Left Side - Welcome Section -->
     <div class="welcome-section">
-    <a href="index.php"><img src="images/back.png" class="back-image"></a>
+    <a href="../index.php"><img src="../includes/images/back.png" class="back-image"></a>
       <h2>Welcome freelancer !</h2>
       <p>Enter your personal details to use all of the site features.</p>
       <a href ="freelancer_login.php"><button>Login In</button></a>
@@ -204,7 +204,7 @@
         <input type="email" placeholder="Email" required name="email"/>
         <input type="text" placeholder="Phone number" name="phone">
         <input type="password" placeholder="Password"  id="password" required name="password"/>
-        <img src="images/hide.png" class="togglePassword" id="togglePassword">
+        <img src="../includes/images/hide.png" class="togglePassword" id="togglePassword">
         <input type="password" placeholder="Confirm Password" id="password" required />
         <button type="submit" name="btn">Signup</button>
       </form> 
