@@ -88,7 +88,7 @@
         }
 
         .cta-btn {
-            background: #FFA500;
+            background: #c68207;
             padding: 14px 35px;
             font-size: 20px;
             color: #fff;
@@ -99,8 +99,8 @@
         }
 
         .cta-btn:hover {
-            border: 1px solid #FFA500;
-            background: #2B547E;
+            border: 1px solid #c68207;
+            background:rgb(131, 88, 8);
         }
 
         /* Completed Projects Section */
@@ -121,11 +121,13 @@
         }
 
         .filter-container select {
-            padding: 10px 15px;
+            padding: 10px ;
             font-size: 18px;
-            border-radius: 5px;
+            border-radius: 8px;
             border: 1px solid #ccc;
-            width: 200px;
+            width: 150px;
+            background-color: #2e6871;
+            color: white;
         }
 
         /* Projects Grid */
@@ -138,7 +140,7 @@
         }
 
         .project-card {
-            background: #f7f7f7;
+            background:  #2e6871;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -152,7 +154,7 @@
         .project-card:hover {
             box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
             transform: translateY(-5px);
-            background-color: #f0f0f0;
+            background-color: rgb(34, 76, 82);
         }
 
         .project-card h3 {
@@ -162,7 +164,7 @@
 
         .project-card p {
             font-size: 16px;
-            color: #555;
+            color: white;
             margin-bottom: 15px;
         }
 
@@ -259,7 +261,7 @@
 
         }
         .user h1{
-            margin-left:80vh;
+            margin-left:70vh;
             position:absolute;
             left:30px;
             color:white;
@@ -335,11 +337,13 @@
         ;?></h1>
         </u>
         </div> 
+        <br>
+       
     <!-- Hero Section -->
     <section class="hero" id="home">
         <h2>Revolutionizing IT Consulting</h2>
         <p>Effortlessly connect with top freelancers using our intelligent algorithm. The best match for your project is just a click away.</p>
-        <a href="user_project.php"><button class="cta-btn" id="getStartedBtn">Get Started</button></a>
+        <a href="user_project.php"><br><button class="cta-btn" id="getStartedBtn">Get Started</button></a>
     </section>
 
     <!-- Completed Projects Section -->
