@@ -71,14 +71,10 @@
               <button class='accept' onclick='openPopup(" . $row["id"] . ", " . json_encode($row) . ")'>Edit</button>
             </td>
             <td>
-              <td>
-                  <form method='POST'>
-                      <input type='hidden' name='user_id' value="<?php echo $row['id']; ?>">
-                      <input type='submit' name='delete' value='Delete' class='reject'>
-                  </form>
-
-          </td>
-
+              <form method='POST'>
+                <input type='hidden' name='user_id' value="<?php echo $row['id']; ?>">
+                <input type='submit' name='delete' value='Delete' class='reject'>
+              </form>
             </td>
           </tr>";
           }
