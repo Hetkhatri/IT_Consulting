@@ -7,23 +7,24 @@
   flex-wrap: wrap;
 }
 
-.cards{
-    border-radius: 15px;
-    height: auto;
-    width: 40vh;
-    margin:1rem;
-    padding: 10px;
-    cursor: pointer;
-    background: transparent;
-    box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.3);
-    transition: transform .1s;
+.cards {
+  border-radius: 15px;
+  height: auto;
+  width: 40vh;
+  margin: 1rem;
+  padding: 20px;
+  cursor: pointer;
+  background: transparent;
+  box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s;
 }
 
 .cards:hover {
   transform: scale(1.05);
 }
 
-.card-image-top {
+.card-image-top,
+.img {
   height: 10rem;
   width: 10rem;
 }
@@ -35,4 +36,18 @@
 .card-text {
   font-size: 1.2rem;
   margin-top: 0.2rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user h1 {
+  margin-left: 0;
+  position: unset;
+  left: 30px;
+  color: white;
+  top: 220px;
 }
