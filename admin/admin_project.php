@@ -60,6 +60,7 @@
             <th>E-Mail</th>
             <th>Contact-No.</th>
             <th>Budget</th>
+            <th>Status</th>
             <th>Action</th>
           
         </tr>  
@@ -76,6 +77,7 @@
                     <td>" . $row["email"] . "</td>
                     <td>" . $row["contactno"] . "</td>
                     <td>" . $row["budget"] . "</td>
+                    <td>" . $row["status"] . "</td>
                   </tr>";
         }
     } 

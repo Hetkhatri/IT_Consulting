@@ -50,7 +50,8 @@
         $email = $_REQUEST['email'];
         $phone = $_REQUEST['phone'];
         $password = $_REQUEST['password'];
-        $insert = "insert into freelancer_signup(username,email,contactno,password)values('" . $username . "','" . $email . "','" . $phone . "','" . $password . "')";
+        $hashpass = md5($password);
+        $insert = "insert into freelancer_signup(username,email,contactno,password)values('" . $username . "','" . $email . "','" . $phone . "','" . $hashpass . "')";
         $execute = $connection->query($insert);
         if ($execute) {
           $message = "Account Created Successfully";

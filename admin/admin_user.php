@@ -72,7 +72,6 @@
             </td>
             <td>
               <form method='POST'>
-                <input type='hidden' name='user_id' value="<?php echo $row['id']; ?>">
                 <input type='submit' name='delete' value='Delete' class='reject'>
               </form>
             </td>
