@@ -279,7 +279,7 @@
                             echo "<script>alert('Email could not be sent');
                             window.location.href='index.php';</script>";
                         }
-                } else {
+                 else {
                         echo "Query Error: " . mysqli_error($connection);
                 }
             }

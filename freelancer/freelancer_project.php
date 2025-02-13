@@ -81,16 +81,6 @@
 
 if (isset($_POST['accept'])) {
     $project_id = $_POST['project_id'];
-
-    // Check if freelancer is logged in
-    if (!isset($_SESSION['freelancer_id']) || !isset($_SESSION['freelancer_email'])) {
-        echo "<script>alert('Freelancer is not logged in!');</script>";
-        exit;
-    }
-
-    $freelancer_id = $_SESSION['freelancer_id'];
-    $freelancer_email = $_SESSION['freelancer_email'];
-
     // Check if project exists
     $select_query = "SELECT * FROM user_project WHERE id = ?";
     $stmt = $connection->prepare($select_query);
@@ -101,33 +91,30 @@ if (isset($_POST['accept'])) {
     if ($project = $result->fetch_assoc()) {
         // Ensure the correct column names match your database table
         $insert_query = "INSERT INTO accepted_projects 
-                         (title, type, details, email, contactno, budget, freelancer_id, freelancer_email) 
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        
-        $stmt_insert = $connection->prepare($insert_query);
-        $stmt_insert->bind_param("sss/sssss", 
-            $project['title'], 
-            $project['type'], 
-            $project['details'], 
-            $project['email'], 
-            $project['contactno'], 
-            $project['budget'],
-            $freelancer_id, 
-            $freelancer_email
-        );
-        if ($stmt_insert->execute()) {
-            // Update the project status instead of deleting
-            $update_query = "UPDATE user_project SET status = 'Accepted' WHERE id = ?";
-            $stmt_update = $connection->prepare($update_query);
-            $stmt_update->bind_param("i", $project_id);
-            $stmt_update->execute();
+                 (title, type, details, email, contactno, budget) 
+                 VALUES (?, ?, ?, ?, ?, ?)";
 
-            echo "<script>alert('Project Accepted Successfully!');</script>";
-        } else {
-            echo "Failed to insert into accepted_projects: " . $stmt_insert->error;
-        }
-    } else {
-        echo "Project Not Found!";
+$stmt_insert = $connection->prepare($insert_query);
+$stmt_insert->bind_param("ssssss", 
+    $project['title'], 
+    $project['type'], 
+    $project['details'], 
+    $project['email'], 
+    $project['contactno'], 
+    $project['budget']
+);
+
+if ($stmt_insert->execute()) {
+    // Update the project status instead of deleting
+    $update_query = "UPDATE user_project SET status = 'Accepted' WHERE id = ?";
+    $stmt_update = $connection->prepare($update_query);
+    $stmt_update->bind_param("i", $project_id);
+    $stmt_update->execute();
+
+    echo "<script>alert('Project Accepted Successfully!');</script>";
+} else {
+    echo "Failed to insert into accepted_projects: " . $stmt_insert->error;
+}
     }
 }
 ?>

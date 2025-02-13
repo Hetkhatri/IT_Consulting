@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    include('../Database/database_connectivity.php');
+session_start();
+include('../Database/database_connectivity.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,38 +17,14 @@
 </head>
 <body class="hold-transition sidebar-mini">
 
-  <?php
-     if (isset($_SESSION['email'])) {
-      $email = $_SESSION['email'];           
-      // Database query to fetch username
-      $query = "SELECT title FROM accepted_projects WHERE email = ?";   
-      $stmt = $connection->prepare($query);
-      $stmt->bind_param("s", $email);
-      $stmt->execute();
-      $result = $stmt->get_result();
-  
-      if ($result->num_rows > 0) {
-          $row = $result->fetch_assoc();
-          $title = $row['title'];
-      } else {
-          $title = "Not Got";  // Default if user is not found in the database
-      }
-      $stmt->close();
-  } else {
-      // If 'email' is not in the session, set a default username
-      $title = "didnt get";
-      // Optionally redirect to login page if not logged in
-      // header("Location: login.php");
-      // exit();
-  }
-  ?>
   <div class="wrapper">
     <?php include 'admin_header.php' ?>
     
     <div class="content-wrapper">
     <h1 class="head">Accepted Projects</h1>
+    
     <?php
-     $sql = "select * from user_project";
+     $sql = "SELECT * FROM user_project";
      $result = $connection->query($sql);
      ?>
       <table class="project">
@@ -60,15 +36,13 @@
             <th>E-Mail</th>
             <th>Contact-No.</th>
             <th>Budget</th>
-            <th colspam=3>Action</th>
-          
+            <th colspan=3>Action</th>
         </tr>  
+        
         <?php
-    if ($result->num_rows > 0) 
-    {
-        // Output data of each row
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>
                     <td>" . $row["id"] . "</td>
                     <td>" . $row["title"] . "</td>
                     <td>" . $row["type"] . "</td>
@@ -77,56 +51,92 @@
                     <td>" . $row["contactno"] . "</td>
                     <td>" . $row["budget"] . "</td>
                     <td>
-                    <form method='POST'>
-            <input type='hidden' name='project_id' value='" . $row["id" ] . "'>
-            <input type='submit' name='email' value='email' class='accept'>
-        </form>
-    </td>
-    <td>
-        <form method='POST'>
-            <input type='hidden' name='project_id' value='" . $row["id"] . "'>
-            <input type='submit' name='edit' value='Edit' class='reject'>
-        </form>
-    </td>
-    <td>
-        <form method='POST'>
-            <input type='hidden' name='project_id' value='" . $row["id"] . "'>
-            <input type='submit' name='delete' value='Detete' class='reject'>
-        </form>
-    </td>
-    </tr>";
-        }
-    } 
-    else 
-    {
-        echo "<tr><td colspan='4'>No records found</td></tr>";
-      }
-      ?>
-         <?php
-            if (isset($_POST['delete'])) {
-                $project_id = $_POST['project_id'];
-                // Prepare delete query
-                $sql = "DELETE FROM user_project WHERE id = ?";
-                $stmt = $connection->prepare($sql);
-                $stmt->bind_param("i", $project_id);
-
-                if ($stmt->execute()) {
-                    echo "<script>alert('Project deleted successfully');</script>";
-                    echo "<script>window.location.href='accepted_projects.php';</script>"; // Redirect to refresh the page
-                } else {
-                    echo "<script>alert('Error deleting project');</script>";
-                }
-                $stmt->close();
-                }
-?>
-
-        <?php
-            if (isset($_POST["email"])) {
-                echo "button clicked";
+                        <form method='POST'>
+                            <input type='hidden' name='project_email' value='" . $row["email"] . "'>
+                            <input type='submit' name='email' value='Email' class='accept'>
+                        </form>
+                    </td>
+                    <td>
+                        <form method='POST'>
+                            <input type='hidden' name='project_id' value='" . $row["id"] . "'>
+                            <input type='submit' name='edit' value='Edit' class='reject'>
+                        </form>
+                    </td>
+                    <td>
+                        <form method='POST'>
+                            <input type='hidden' name='project_id' value='" . $row["id"] . "'>
+                            <input type='submit' name='delete' value='Delete' class='reject'>
+                        </form>
+                    </td>
+                </tr>";
             }
+        } else {
+            echo "<tr><td colspan='9'>No records found</td></tr>";
+        }
         ?>
-        
       </table>
+      <?php
+
+        use PHPMailer\PHPMailer\PHPMailer;
+        use PHPMailer\PHPMailer\SMTP;
+        use PHPMailer\PHPMailer\Exception;
+
+        function SRS($selected_email)
+        {
+        // echo $reset_token;
+        // echo $email;
+        // die;
+            require('../PHP_mailer/PHPmailer.php');
+            require('../PHP_mailer/SMTP.php');
+            require('../PHP_mailer/Exception.php');
+
+            $mail = new PHPMailer(true);
+            // echo "<pre>";
+            // print_r($mail);
+            // die;
+
+            try {
+                //Server settings
+                $mail->isSMTP();
+                $mail->Host       = 'smtp.gmail.com';
+                $mail->SMTPAuth   = true;
+                $mail->Username   = 'hetkhatri22@gmail.com'; 
+                $mail->Password   = 'dlmp pfeh jcjf huhh'; 
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                $mail->Port       = 465;
+                //Recipients
+                $mail->setFrom('hetkhatri22@gmail.com', 'Twinder spot');
+                $mail->addAddress($selected_email);
+
+                //Content
+                $mail->isHTML(true);
+                $mail->Subject = 'Create SRS from twinder spot';
+                $mail->Body    = "We got a Request from you to create your SRS(system requirement specification)!<br><b>Click the below link:</b><br>
+                <a href='http://localhost:8080/IT_Consulting/admin/SRS/srs_project.php?email=$selected_email'>Create your SRS</a>";
+                $mail->send();
+                echo "Email sent successfully to $email";
+                return true;
+            } catch (Exception $e) {
+                echo "Mailer Error: " . $mail->ErrorInfo;
+                return false;
+            }
+        }
+
+        ?>
+      <?php
+      // Show the email of the selected project
+      if (isset($_POST["email"])) {
+          $selected_email = $_POST['project_email'];
+          if (SRS($selected_email)){ 
+                            echo "<script>alert('SRS Link send to mail');
+                            window.location.href='../admin/admin_home.php';</script>";
+                        } else {
+                            echo "<script>alert('Email could not be sent');
+                            window.location.href='../admin/admin_home.php';</script>";
+                        }
+            }
+      ?>
+
     </div>
 
     <?php include ('admin_footer.php'); ?>
@@ -139,5 +149,4 @@
   <script src="./src/js/bootstrap.bundle.min.js"></script>
   <script src="./src/js/adminlte.min.js"></script>
 </body>
-
 </html>
