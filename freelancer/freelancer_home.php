@@ -61,6 +61,7 @@ include('../Database/database_connectivity.php');
     <section class="hero" id="home">
         <h2>Revolutionizing IT Consulting</h2>
         <p>Effortlessly connect with top freelancers using our intelligent algorithm. The best match for your project is just a click away.</p>
+        
         <a href="freelancer_project.php"><button class="cta-btn" id="getStartedBtn">Get Projects</button></a>
     </section>
 
@@ -72,8 +73,8 @@ include('../Database/database_connectivity.php');
                         <p class="card-text">Brand identity represents the visual elements and assets
                                     that
                                     distinguish a brand.</p>
-                </div>        
-        </div>
+                </div>
+</div>
         <div class="cards"><img src="../includes/images/research.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h4 class="card-title">Research</h4>
