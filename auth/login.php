@@ -78,8 +78,8 @@
       justify-content: center;
       align-items: center;
       position: absolute;
-      top:220px;
-      right:80px;
+      top:120px;
+      right:100px;
     }
 
     .signup-section h2 {
@@ -153,8 +153,8 @@
       height:25px;
       width:25px;
       position:absolute;
-      top:230px;
-      left:515px
+      top:226px;
+      left:545px;
     }
     .invalid{
       color:red;
@@ -164,16 +164,16 @@
     }
     .back-image{
       position: absolute;
-      left:300px;
-      top:220px;
+      left:340px;
+      top:130px;
       height:40px;
       transition: transform 0.2s ease-in-out;
     }
     .back-image:hover{
      height:40px;
      position: absolute;
-     left:300px;
-     top:220px;
+     left:340px;
+     top:130px;
       transform: scale(1.2);
     }
   </style>
