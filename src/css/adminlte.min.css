@@ -4592,7 +4592,7 @@ input[type="submit"].btn-block {
   border-bottom-left-radius: calc(0.25rem - 0);
 }
 .card-deck .card {
-  margin-bottom: 7.5px;
+  margin-bottom:4.5px;
 }
 @media (min-width: 576px) {
   .card-deck {
