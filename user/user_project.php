@@ -20,7 +20,7 @@ include('user_header.php');
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
-            background-color: #2e6871;
+            background-color:rgb(255, 255, 255);
 
 
         }
@@ -62,7 +62,7 @@ include('user_header.php');
         }
 
         .h1 {
-            color: white;
+            color: black;
             font-size: 1.5em;
             margin-bottom: 5vh;
         }
@@ -83,20 +83,20 @@ include('user_header.php');
             border-radius: ;
             border: none;
             font-size: 1.5em;
-            color: black;
-            background: transparent;
+            color: #fff;
+            background: rgb(59, 170, 187);
             outline: 0.5vh solid rgb(28, 28, 34);  
             font-weight: 700;
             border-radius: 7px;
         }
 
         button:hover{
-            background:rgb(74, 184, 236);
+            background: rgb(52, 109, 117);
             transition: 0.5s ease-in;
         }
         .tex{
             margin-left: 53vh;
-            color: white;
+            color: black;
         }
     </style>
 </head>
@@ -148,6 +148,7 @@ include('user_header.php');
             // exit();
         }
     ?>
+    <br>
     <h1 class="tex">
         TELL US ABOUT YOUR PROJECT 🗒
     </h1>
@@ -192,6 +193,9 @@ include('user_header.php');
           }
         }
       ?>
+      <footer>
+        <p>&copy; 2025 IT Consulting Platform. All rights reserved.</p>
+    </footer>
       <link rel="stylesheet" href="../css/header.css">
 </body>
 </html>
