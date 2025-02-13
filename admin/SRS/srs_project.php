@@ -84,6 +84,13 @@
                 flex-direction: column;
                 gap: 10px;
             }
+
+            input[type="date"]::-webkit-calendar-picker-indicator {
+                cursor: pointer;
+                filter: invert(50%);
+                width: 20px;
+                height: 20px;
+            }
         </style>
     </head>
 
