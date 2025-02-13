@@ -196,9 +196,8 @@
       $execute = $connection->query($select);
       if ($execute && $execute->num_rows > 0)
       {
-  
         $_SESSION['email'] = $email;  
-        header("location:user_homepage.php");
+        echo "<script>window.location.href = '../user/user_homepage.php';</script>";
         exit;
       }
       else{
