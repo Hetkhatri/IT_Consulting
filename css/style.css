@@ -28,7 +28,7 @@
   width: 100%;
   margin-top: 20px;
 }
- 
+
 .navbar .navbar-brand {
   color: #f1f1f1;
   font-size: 30px;
@@ -49,10 +49,10 @@
 
 .navbar .dropdown-menu {
   width: 12px;
- }
+}
 
 .navbar .dropdown-menu li a {
-  color:  rgb(46, 104, 113);
+  color: rgb(46, 104, 113);
   font-size: 15px;
 }
 
