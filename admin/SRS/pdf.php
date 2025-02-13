@@ -1,33 +1,46 @@
 <?php
-if(!empty($_POST['btn']))
+if(isset($_POST['btn']))
 {
-	$nam=$_POST['a1'];
-	$f_cont=$_POST['c1'];
-	// $gender=$_POST['gender'];
-	$hobb=$_POST['h1'];
+    // Retrieve form values
+    $title = $_POST['titl'];
+    $purpose = $_POST['purpo'];
+    $date = $_POST['dat'];
+    $reference = $_POST['referenc'];
+    $functional = $_POST['refu'];
+    $nonfunctional = $_POST['nonfu'];
 
-	require("fpdf/fpdf.php");
+    require("fpdf/fpdf.php");
 
-	$pdf= new FPDF();
-	$pdf->AddPage();
+    $pdf = new FPDF();
+    $pdf->AddPage();
 
-	$pdf->SetFont("Arial","B",13);
-	$pdf->Cell(0,10,"Registration Details",1,1,'C');
+    $pdf->SetFont("Arial", "B", 13);
+    $pdf->Cell(0, 10, "Registration Details", 1, 1, 'C');
 
-	$pdf->Cell(60,10,"Name.",1,0);
-	$pdf->Cell(60,10,"Contact Number.",1,0);
-	$pdf->Cell(70,10,"hobby.",1,1);
-	//$pdf->Cell(20,10,"age.",1,0);
-	//$pdf->Cell(30,10,"address.",1,1);
-	//$pdf->Cell(20,10,"city.",1,1);
+    // Table headers
+    $pdf->Cell(60, 10, "Project Title.", 1, 0);
+    $pdf->Cell(60, 10, "Purpose.", 1, 0);
+    $pdf->Cell(70, 10, "Issued Date.", 1, 1);
+    $pdf->Cell(20, 10, "Any References.", 1, 0);
+    $pdf->Cell(30, 10, "Requirements Functional.", 1, 1);
+    $pdf->Cell(20, 10, "Non-Functional.", 1, 1);
 
-	$pdf->cell(60,10,$nam,1,0);
-	$pdf->cell(60,10,$f_cont,1,0);
-	$pdf->cell(70,10,$hobb,1,1);
-	//$pdf->cell(40,10,$nam,1,0);
+    // Data row
+    $pdf->Cell(60, 10, $title, 1, 0);
+    $pdf->Cell(60, 10, $purpose, 1, 0);
+    $pdf->Cell(70, 10, $date, 1, 1);
+    $pdf->Cell(40, 10, $reference, 1, 0);
+    $pdf->Cell(40, 10, $functional, 1, 0);
+    $pdf->Cell(40, 10, $nonfunctional, 1, 0);
 
-	$file=time().'.pdf';
+    // Generate filename
+    $file = time() . '.pdf';
 
-	$pdf->output($file,'D');
+    // Set headers to prompt download
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: attachment; filename="' . $file . '"');
+
+    // Output the PDF
+    $pdf->Output();
 }
-?>	
+?>
