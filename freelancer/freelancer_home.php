@@ -30,7 +30,7 @@ include('../Database/database_connectivity.php');
         if (isset($_SESSION['email'])) {
             $email = $_SESSION['email'];           
             // Database query to fetch username
-            $query = "SELECT username FROM user_signup WHERE email = ?";
+            $query = "SELECT username FROM freelancer_signup WHERE email = ?";
             $stmt = $connection->prepare($query);
             $stmt->bind_param("s", $email);
             $stmt->execute();
