@@ -1,10 +1,12 @@
 <?php
 
 include('./includes/header.php');
+include './chatboat/chatbot.php';
 ?>
 <!-- hero section  -->
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/hero-section.css">
+
 <section id="home" class="hero-section">
     <div class="container">
         <div class="row">
