@@ -48,8 +48,7 @@
         $email = $_REQUEST['email'];
         $phone = $_REQUEST['phone'];
         $password = $_REQUEST['password'];
-        $hashpass = md5($password);
-        $insert = "insert into user_signup(username,email,contactno,password)values('" . $username . "','" . $email . "','" . $phone . "','" . $hashpass . "')";
+        $insert = "insert into user_signup(username,email,contactno,password)values('" . $username . "','" . $email . "','" . $phone . "','" . $password. "')";
         $execute = $connection->query($insert);
         if ($execute) {
           $message = "Account Created Successfully";

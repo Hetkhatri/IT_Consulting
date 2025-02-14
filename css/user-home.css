@@ -132,7 +132,6 @@ nav a:hover {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0);
   text-align: left;
   transition: 0.3s;
   width: 100%;
@@ -230,7 +229,7 @@ nav a:hover {
 }
 
 footer {
-  background-color: #333;
+  background-color: #2e6871;
   color: #fff;
   text-align: center;
   padding: 25px 0;

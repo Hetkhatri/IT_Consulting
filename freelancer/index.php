@@ -21,7 +21,7 @@ include('../Database/database_connectivity.php');
     <body class="fbody">
         <header>
             <?php
-            include('../user/user_header.php');
+            include('../freelancer/freelancer_header.php');
             ?>
         </header>
         <?php

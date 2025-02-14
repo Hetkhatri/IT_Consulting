@@ -45,7 +45,7 @@ include('user_header.php');
                 border-radius: 20px;
                 padding: 20px;
                 margin-top: 50px;
-                border: 7px double black;
+                border: 4px solid black;
 
             }
 
