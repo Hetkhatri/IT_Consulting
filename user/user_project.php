@@ -119,7 +119,6 @@ include('user_header.php');
             }
             $stmt->close();
         } else {
-            // If 'email' is not in tdQhe session, set a default username
             $email = "Not got your email";
             // Optionally redirect to login page if not logged in
             // header("Location: login.php");
@@ -182,7 +181,7 @@ include('user_header.php');
             $email = $_REQUEST['email'];
             $contact_no = $_REQUEST['contactno'];
             $budget = $_REQUEST['budget'];
-            $insert = "insert into user_project(title,type,details,email,contactno,budget)values('" . $title . "','" . $type . "','" . $details . "','" . $email . "','" . $contactno . "','" . $budget . "')";
+            $insert = "insert into user_project(title,type,details,email,contactno,budget,status)values('" . $title . "','" . $type . "','" . $details . "','" . $email . "','" . $contactno . "','" . $budget . "','pending')";
             $execute = $connection->query($insert);
             if ($execute) {
                 $message = "Project submited successfully we will contact you soon";
