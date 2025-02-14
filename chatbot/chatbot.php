@@ -9,9 +9,26 @@
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="style.css">
         <title>chatbot</title>
+        <style>
+            body {
+                position: relative;
+            }
+
+            .back {
+                position: absolute;
+                top: 10px;
+                left: 5px;
+            }
+
+            .bimg {
+                height: 45px;
+                width: 45px;
+            }
+        </style>
     </head>
 
     <body>
+        <a href="../index.php" class="back"><img src="../includes/images/back.png" alt="" class="bimg"></a>
         <div class="main">
             <div class="header">
                 <div class="head-info">

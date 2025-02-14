@@ -37,7 +37,7 @@ $result2 = $stmt2->get_result(); ?>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo $name . ' Profile' ?></title>
+        <title><?php echo $name . '\'s Profile' ?></title>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <style>
@@ -112,7 +112,7 @@ $result2 = $stmt2->get_result(); ?>
                 <div class="profile-details">
 
                     <h2>Contact</h2>
-                    <p>Email: <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p>
+                    <p>Email: <?php echo $email; ?></p>
                     <p>Phone: <?php echo $phone; ?></p>
                 </div>
                 <div class="table-container">
