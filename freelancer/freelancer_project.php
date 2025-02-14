@@ -69,7 +69,7 @@ include('../Database/database_connectivity.php');
                   <td>
                     <form method='POST'>
                         <input type='hidden' name='project_id' value='" . $row["id"] . "'>
-                        <input type='submit' name='reject' value='Reject' class='reject'>
+                     
                     </form>
                   </td>";
                             }
