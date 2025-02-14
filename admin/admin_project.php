@@ -61,7 +61,6 @@
             <th>Contact-No.</th>
             <th>Budget</th>
             <th>Status</th>
-            <th>Action</th>
           
         </tr>  
         <?php

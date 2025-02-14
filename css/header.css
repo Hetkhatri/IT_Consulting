@@ -121,6 +121,9 @@ footer p {
   color: #fff;
   border-radius: 50%;
   font-size: 50px;
+  position: fixed;
+  left: 20px;
+  bottom: 80px;
 }
 
 @media (max-width: 700px) {

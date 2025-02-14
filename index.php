@@ -4,35 +4,10 @@ include('./includes/header.php');
 ?>
 <!-- hero section  -->
 <style>
-    #popbtn {
-        position: fixed;
-        bottom: 20px;
-        right: 30px;
-        background-color: #5350c4;
-        color: white;
-        border: none;
-        padding: 10px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1.5em;
-        transition: 0.3s;
-    }
 
-    #popbtn:hover {
-        background-color: #3d39ac;
-    }
-
-    .pop-icon {
-        position: relative;
-        bottom: 0;
-        right: 0;
-        width: 55px;
-        height: 55px;
-    }
 </style>
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/hero-section.css">
-<a id="popbtn" href="chatbot/chatbot.php"><img src="chatbot/chatboat.png" class="pop-icon"></a>
 <section id="home" class="hero-section">
     <div class="container">
         <div class="row">
@@ -144,6 +119,15 @@ include('./includes/header.php');
         </div>
     </div>
 </section>
+
+
+<div class="col-lg-1 col-md-12 col-sm-12">
+                <!-- back to top  -->
+
+                <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                        class="bi bi-arrow-up-short"></i></a>
+            </div>
+
 
 <!-- project section  -->
 
@@ -319,13 +303,6 @@ include('./includes/header.php');
 
             <div class="col-lg-2 col-md-12 col-sm-12">
                 <p>&copy;2023_TwinderSpot</p>
-            </div>
-
-            <div class="col-lg-1 col-md-12 col-sm-12">
-                <!-- back to top  -->
-
-                <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                        class="bi bi-arrow-up-short"></i></a>
             </div>
 
         </div>

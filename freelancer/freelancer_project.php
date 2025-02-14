@@ -37,7 +37,7 @@ include('../Database/database_connectivity.php');
                         <th>E-Mail</th>
                         <th>Contact-No.</th>
                         <th>Budget</th>
-                        <th colspan=2>Action</th>
+                        <th>Action</th>
 
                     </tr>
                     <?php
@@ -64,12 +64,6 @@ include('../Database/database_connectivity.php');
                     <form method='POST'>
                         <input type='hidden' name='project_id' value='" . $row["id"] . "'>
                         <input type='submit' name='accept' value='Accept' class='accept'>
-                    </form>
-                  </td>
-                  <td>
-                    <form method='POST'>
-                        <input type='hidden' name='project_id' value='" . $row["id"] . "'>
-                        <input type='submit' name='reject' value='Reject' class='reject'>
                     </form>
                   </td>";
                             }
@@ -126,7 +120,7 @@ include('../Database/database_connectivity.php');
                 </table>
             </div>
 
-            <?php include('admin_footer.php'); ?>
+            <!-- <?php include('admin_footer.php'); ?> -->
         </div>
 
         <!-- jQuery -->

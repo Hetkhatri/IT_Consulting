@@ -12,9 +12,35 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="../css/style.css">
+    <style>    #popbtn {
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        background-color: #5350c4;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.5em;
+        transition: 0.3s;
+    }
+
+    #popbtn:hover {
+        background-color: #3d39ac;
+    }
+
+    .pop-icon {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        width: 45px;
+        height: 45px;
+    }</style>
 </head>
 
 <body>
+<a id="popbtn" href="../chatbot/chatbot.php"><img src="../chatbot/chatboat.png" class="pop-icon"></a>
 
     <!-- navbar section   -->
 
@@ -29,7 +55,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="freelancer_home.php">Home</a>
+                            <a class="nav-link" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="freelancer_project.php">project</a>
@@ -41,7 +67,7 @@
                             <a class="nav-link" href="../index.php">Log out</a>
                         </li>
                         <li class="nav-item">
-                        <a href="freelancer_profile.php"> <img src="../includes/images/profile-user.png" alt="profile-user" style="height:50px;position:absolute; right:10px;top:35px"></a>
+                        <a href="freelancer_profile.php"> <img src="../includes/images/profile-user.png" alt="profile-user" style="height:50px;position:absolute; right:30px;top:25px"></a>
                         </li>
                         <!-- <li class="nav-item"> -->
                             <!-- <a class="nav-link" href="signup.php">signup</a> -->

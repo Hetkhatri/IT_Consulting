@@ -102,7 +102,7 @@ if(isset($_REQUEST['submit']))
   {
     $message = "Form submitted successfully";
     echo "<script type='text/javascript'>alert('$message');</script>";
-    echo "<script>window.location.href = 'freelancer_home.php';</script>";
+    echo "<script>window.location.href = 'index.php';</script>";
   }
   else
   {
