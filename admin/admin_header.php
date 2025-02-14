@@ -1,7 +1,6 @@
 <?php
 $currentPage = basename($_SERVER['SCRIPT_NAME']);
 $pageTitle = "";
-
 $menuItems = [
     [
         "menuTitle" => "Menu",
@@ -30,35 +29,28 @@ foreach ($menuItems as $menuItem) {
         }
     }
 }
-?><ul class="navbar-nav ml-auto">
-     
+?>
+<ul class="navbar-nav ml-auto">
 
-<head>
-    <title><?= $pageTitle ?></title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-</head>
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" role="button"><i class="fas fa-bars"></i></a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="admin_home.php" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a onclick="logout()" class="nav-link">Logout</a>
-        </li>
-    </ul>
-    <!-- <form class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="Search" name="search">
-            <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit"><i class="fas fa-search"></i></button>
-            </div>
-        </div>
-    </form> -->
-       
-    </ul>
+
+    <head>
+        <title><?= $pageTitle ?></title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    </head>
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="admin_home.php" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a onclick="logout()" class="nav-link">Logout</a>
+            </li>
+        </ul>
+
+</ul>
 </nav>
 
 <div class="main-header" style="padding: 0px 10px; background-color: #f4f6f9; border-bottom: none !important;">
@@ -81,32 +73,13 @@ foreach ($menuItems as $menuItem) {
 </div>
 <?php
 include('../Database/database_connectivity.php');
-// Check if the session variable 'email' is set
 ?>
 <?php
-// Check if the session variable 'email' is set
-if (isset($_SESSION['email'])) {
-    $email = $_SESSION['email'];
-    // Database query to fetch username
-    $query = "SELECT username FROM admin_signup WHERE email = '$email'";
-    $stmt = $connection->prepare($query);
-    //  $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
+if (isset($_SESSION['ub'])) {
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $username = $row['username'];
-    } else {
-        $username = "Guest1";  // Default if user is not found in the database
-    }
-    $stmt->close();
+    $username = $_SESSION['ub'];
 } else {
-    // If 'email' is not in the session, set a default username
     $username = "Guest";
-    // Optionally redirect to login page if not logged in
-    // header("Location: login.php");
-    // exit();
 }
 ?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">

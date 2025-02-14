@@ -30,7 +30,7 @@ include('../Database/database_connectivity.php');
                 ?>
                 <table class="project">
                     <tr>
-                        <th> </th>
+                        <th>ID</th>
                         <th>Title</th>
                         <th>Type</th>
                         <th>Details</th>
@@ -113,7 +113,7 @@ include('../Database/database_connectivity.php');
             alert('You have already accepted a project. You cannot access this page.');
             window.location.href = 'index.php'; 
           </script>";
-                        exit();
+                        die;
                     }
                     ?>
 

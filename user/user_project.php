@@ -156,7 +156,7 @@ include('user_header.php');
         <div class="form-container">
             <div class="form-all">
                 <h1 class="h1"> FILL THIS FORM ✍🏻</h1>
-                <form action="#" method="POST">
+                <form action="user_project.php" method="POST">
                     <div class="form-input">
                         <input type="text" placeholder="Project Title" required name="title">
                         <input type="text" placeholder="Enter project type" required name="type">

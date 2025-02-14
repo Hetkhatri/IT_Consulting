@@ -28,6 +28,9 @@
         $select = "SELECT * FROM `admin_signup` WHERE email='$email' AND password='$password'";
         $execute = $connection->query($select);
         if ($execute && $execute->num_rows > 0) {
+          while ($row = $execute->fetch_assoc()) {
+            $_SESSION['ub'] = $row['username'];
+          }
           // echo "Hello";
           header("location:admin_home.php");
           exit;

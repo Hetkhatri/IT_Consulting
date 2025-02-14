@@ -225,7 +225,6 @@
       }
 
       ?>
-      <!-- Right Side - Sign-Up Section -->
       <div class="signup-section">
         <h2>Login</h2>
         <div class="social-icons">
