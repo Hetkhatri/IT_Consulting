@@ -1,12 +1,38 @@
 <?php
 
 include('./includes/header.php');
-include './chatboat/chatbot.php';
 ?>
 <!-- hero section  -->
+<style>
+    #popbtn {
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        background-color: #5350c4;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.5em;
+        transition: 0.3s;
+    }
+
+    #popbtn:hover {
+        background-color: #3d39ac;
+    }
+
+    .pop-icon {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        width: 55px;
+        height: 55px;
+    }
+</style>
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/hero-section.css">
-
+<a id="popbtn" href="chatbot/chatbot.php"><img src="chatbot/chatboat.png" class="pop-icon"></a>
 <section id="home" class="hero-section">
     <div class="container">
         <div class="row">
