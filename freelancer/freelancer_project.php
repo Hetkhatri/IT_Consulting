@@ -126,7 +126,7 @@ include('../Database/database_connectivity.php');
                 </table>
             </div>
 
-            <?php include('admin_footer.php'); ?>
+            <!-- <?php include('admin_footer.php'); ?> -->
         </div>
 
         <!-- jQuery -->
