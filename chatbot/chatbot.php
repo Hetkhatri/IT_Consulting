@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php session_start();
+    if (isset($_SESSION['uc'])) {
+        $usern = $_SESSION['uc'];
+    } else {
+        $usern = 'User';
+    }
+    ?>
 
     <head>
         <meta charset="UTF-8">
@@ -39,7 +46,7 @@
             <div class="chatbody">
                 <div class="message">
                     <img src="chatboat.png">
-                    <div class="message-text">Hey User✌🏻<br>Welcome to our chatbot</div>
+                    <div class="message-text">Hey <?php echo $usern ?>✌🏻<br>Welcome to our chatbot</div>
                 </div>
                 <div class="user-message">
                 </div>

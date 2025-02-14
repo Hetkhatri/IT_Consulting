@@ -214,6 +214,9 @@
         $select = "select * from freelancer_signup where email= '$email' AND password = '$password'";
         $execute = $connection->query($select);
         if ($execute && $execute->num_rows > 0) {
+          while ($row = $execute->fetch_assoc()) {
+            $_SESSION['uc'] = $row['username'];
+          }
           $_SESSION['email'] = $email;
           echo "<script>window.location.href = 'index.php';</script>";
         } else {

@@ -195,7 +195,7 @@
         <a href="../index.php"><img src="../includes/images/back.png" class="back-image"></a>
         <h2>Welcome User !</h2>
         <p>Don't have Account?</p>
-        <a href="signup.php"><button>sign-up</button></a>
+        <a href="signup.php"><button>Sign-up</button></a>
       </div>
       <?php
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -204,6 +204,9 @@
         $select = "select * from user_signup where email= '$email' AND password = '$password'";
         $execute = $connection->query($select);
         if ($execute && $execute->num_rows > 0) {
+          while ($row = $execute->fetch_assoc()) {
+            $_SESSION['uc'] = $row['username'];
+          }
           $_SESSION['email'] = $email;
           echo "<script>window.location.href = '../user/user_homepage.php';</script>";
           exit;
