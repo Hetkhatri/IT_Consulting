@@ -35,7 +35,7 @@
                             <a class="nav-link" href="user_project.php">project</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Contact us</a>
+                            <a class="nav-link" href="../index.php#contact">Contact us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../index.php">Log out</a>
