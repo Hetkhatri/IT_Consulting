@@ -32,7 +32,7 @@
                             <a class="nav-link" aria-current="page" href="../user/user_homepage.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#services">project</a>
+                            <a class="nav-link" href="user_project.php">project</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Contact us</a>
@@ -41,7 +41,7 @@
                             <a class="nav-link" href="../index.php">Log out</a>
                         </li>
                         <li class="nav-item">
-                        <a href="freelancer_profile.php"> <img src="../includes/images/profile-user.png" alt="profile-user" style="height:50px;position:absolute; right:20px;top:30px"></a>
+                        <a href="../cooming_soon/index.html"> <img src="../includes/images/profile-user.png" alt="profile-user" style="height:50px;position:absolute; right:20px;top:30px"></a>
                         </li>
                         <!-- <li class="nav-item"> -->
                             <!-- <a class="nav-link" href="signup.php">signup</a> -->
