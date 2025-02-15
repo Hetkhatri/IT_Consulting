@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2025 at 08:21 AM
+-- Generation Time: Feb 15, 2025 at 06:17 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,18 +34,9 @@ CREATE TABLE `accepted_projects` (
   `details` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `contactno` varchar(255) NOT NULL,
-  `budget` varchar(255) NOT NULL
+  `budget` varchar(255) NOT NULL,
+  `free_email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `accepted_projects`
---
-
-INSERT INTO `accepted_projects` (`id`, `title`, `type`, `details`, `email`, `contactno`, `budget`) VALUES
-(17, 'abc', 'test', 'sd,nbdh', 'hetkhatri22@gmail.com', '9173588345', '20000'),
-(18, 'pls', 'aef', 'aefe', 'nxzgaming577@gmail.com', '9173588345', '20000'),
-(20, 'abc', 'dsgf', 'sdger', 'sujal@gmail.com', '9173588345', '8495'),
-(23, 'sfgdr', 'dfrt', 'sdfgr', 'sujall@gmail.com', '9173588345', '4200');
 
 -- --------------------------------------------------------
 
@@ -112,12 +103,15 @@ INSERT INTO `freelancer_signup` (`id`, `username`, `email`, `contactno`, `passwo
 (4, 'dhairya', 'dhairya@gmail.com', '9173588345', '12'),
 (1, 'Dhairya', 'dhairyamakwana1208@gmail.com', '9773244867', '1208'),
 (16, 'Dhrumil', 'dhrumil@gmail.com', '9773244867', '12'),
-(5, 'Het', 'hetkhatri22@gmail.com', '9173588345', '81dc9bdb52d04dc20036dbd8313ed055'),
+(22, 'Het', 'hetkhatri22@gmail.com', '9173588345', '1243'),
 (15, 'Kalpesh', 'kalpesh@gmail.com', '9773244867', '12'),
 (14, 'Het', 'ki@gmail.com', '9173588345', '81dc9bdb52d04dc20036dbd8313ed055'),
 (18, 'mukund', 'mukund@gmail.com', '9773244867', '12'),
+(19, '23504111', 'mukundk@gmail.com', '9173588345', '12'),
 (3, 'vishal', 'nxzgaming577@gmail.com', '9979874742', 'Het'),
-(17, 'om', 'omranpariya@gmail.com', '41168', '1234');
+(17, 'om', 'omranpariya@gmail.com', '41168', '1234'),
+(20, 'SamkitJain', 'Samkit@gmail.com', '9773244867', '12'),
+(23, 'Your', 'your@gmail.com', '9173588345', '12');
 
 -- --------------------------------------------------------
 
@@ -135,23 +129,6 @@ CREATE TABLE `user_project` (
   `budget` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user_project`
---
-
-INSERT INTO `user_project` (`id`, `title`, `type`, `details`, `email`, `contactno`, `budget`, `status`) VALUES
-(26, 'aegrewg', 'wrgrwge', 'brerer', 'dhairya@gmail.com', '9173588345', '88', 'Accepted'),
-(29, 'Amazon', 'website', 'i want to create a website on chemical ', 'dhrumil@gmail.com', '9773244867', '1000', 'Accepted'),
-(30, 'ok', 'website', 'i want to create a website on chemical ', 'fenilbhanderi206@gmail.com', '7862058432', '20000', ''),
-(24, 'abc', 'vsaef', 'sasfwe', 'het@gmail.com', '9173588345', '90000', 'Accepted'),
-(27, 'gsq', 'sfge', 'dgew', 'nxzgaming577@gmail.com', '9979874742', '90000', ''),
-(28, 'swapthik', 'website', 'i want to create a website on Abcd', 'parth@gmail.com', '9773244867', '100000', 'Accepted'),
-(23, 'sdf', 'asfew', '1asfew', 'sujaal@gmail.com', '9173588345', '8495', ''),
-(20, 'abc', 'dsgf', 'sdger', 'sujal@gmail.com', '9173588345', '8495', ''),
-(21, 'sfgdr', 'dfrt', 'sdfgr', 'sujall@gmail.com', '9173588345', '4200', ''),
-(22, 'hey', 'jekfg', 'djfeg', 'sujalll@gmail.com', '9173588345', 'sdfrs', 'Accepted'),
-(25, 'adfda', 'dvef', 'sdvqegq', 'vansh@gmail.com', '9173588345', '5521', 'Accepted');
 
 -- --------------------------------------------------------
 
@@ -179,13 +156,14 @@ INSERT INTO `user_signup` (`id`, `username`, `email`, `contactno`, `password`, `
 (2, 'Dhairya', 'dhairyamakwana1208@gmail.com', '9773244867', '120808', '614fbef4d77ab83201038613bf464924', '2025-01-28'),
 (16, 'Dhrumil', 'dhrumil@gmail.com', '9773244867', '12', NULL, NULL),
 (18, 'fenil', 'fenilbhanderi206@gmail.com', '7862058432', 'Fenil1234', NULL, NULL),
-(7, 'Het', 'hetkhatri22@gmail.com', '9173588345', '0433e3038e208089eb74b7d9c8f5725f', NULL, NULL),
+(21, 'Het', 'hetkhatri22@gmail.com', '9173588345', '1234', NULL, NULL),
 (10, 'Kalpesh', 'kalpesh@gmail.com', '9173588345', '12', NULL, NULL),
 (19, 'mukund', 'mukund@gmail.com', '9773244867', '12', NULL, NULL),
 (4, 'Vishal', 'nxzgaming577@gmail.com', '9979874742', 'Het', 'e474c1c49c022fc8186d5ccebc4af3d5', '2025-02-04'),
 (17, 'om', 'omranpariya@gmail.com', '9662690409', '1234', NULL, NULL),
 (13, 'Parth', 'parth@gmail.com', '9773244867', '12', NULL, NULL),
-(6, 'Sujal', 'sujal@gmail.com', '9173588345', '12', NULL, NULL);
+(6, 'Sujal', 'sujal@gmail.com', '9173588345', '12', NULL, NULL),
+(24, 'Dhairya', 'your@gmail.com', '9173588345', '12', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -195,8 +173,8 @@ INSERT INTO `user_signup` (`id`, `username`, `email`, `contactno`, `password`, `
 -- Indexes for table `accepted_projects`
 --
 ALTER TABLE `accepted_projects`
-  ADD PRIMARY KEY (`email`),
-  ADD UNIQUE KEY `id` (`id`);
+  ADD KEY `id` (`id`) USING BTREE;
+ALTER TABLE `accepted_projects` ADD FULLTEXT KEY `email` (`email`);
 
 --
 -- Indexes for table `admin_signup`
@@ -241,7 +219,7 @@ ALTER TABLE `user_signup`
 -- AUTO_INCREMENT for table `accepted_projects`
 --
 ALTER TABLE `accepted_projects`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `admin_signup`
@@ -259,19 +237,19 @@ ALTER TABLE `freelancer_contactus`
 -- AUTO_INCREMENT for table `freelancer_signup`
 --
 ALTER TABLE `freelancer_signup`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `user_project`
 --
 ALTER TABLE `user_project`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `user_signup`
 --
 ALTER TABLE `user_signup`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

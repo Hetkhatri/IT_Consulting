@@ -67,7 +67,7 @@
                             <a class="nav-link" href="../index.php">Log out</a>
                         </li>
                         <li class="nav-item">
-                        <a href="freelancer_profile.php"> <img src="../includes/images/profile-user.png" alt="profile-user" style="height:50px;position:absolute; right:30px;top:25px"></a>
+                        <a href="freelancer_profile.php"> <img src="../includes/images/profile-user.png" alt="profile-user" style="height:43px; width:43px;"></a>
                         </li>
                         <!-- <li class="nav-item"> -->
                             <!-- <a class="nav-link" href="signup.php">signup</a> -->
