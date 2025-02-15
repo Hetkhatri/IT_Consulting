@@ -181,8 +181,8 @@
       .back-image:hover {
         height: 40px;
         position: absolute;
-        left: 300px;
-        top: 220px;
+        left: 340px;
+        top: 130px;
         transform: scale(1.2);
       }
 
